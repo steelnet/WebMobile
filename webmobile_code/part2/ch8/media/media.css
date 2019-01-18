@@ -1,0 +1,21 @@
+/*article {border: solid 1px black;
+	background:red;
+	float:left;
+	width:320px;}
+aside {border:solid 1px black;
+	background:yellow;
+	position:absolute;
+	float:left;
+	margin-left:350px;}
+	/*打开chrome google浏览器，
+	 调节浏览器尺寸到宽度为480px，
+	可以看到效果，打开develop工具检测宽度   */
+@media screen and (device-width:480px) {
+	article {
+		float:none;
+		width:auto;}
+	aside {
+		background:pink;
+		position:static;
+		float:none;}
+}

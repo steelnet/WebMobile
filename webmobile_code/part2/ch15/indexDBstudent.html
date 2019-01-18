@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>indexedDB数据库</title>	
+		<!--请用Google Chrome浏览器测试-->
+		<style>
+		</style>
+		<script>
+			//检查浏览器支持indexedDB
+			function testIndexedDb() {
+				return ("indexedDB" in window);
+				}
+			//初始化indexedDB等对象
+			window.indexedDB = window.indexedDB || window.mozIndexedDB ||
+			window.webkitIndexedDB;
+			window.IDBKeyRange = window.IDBKeyRange ||
+			window.webkitIDBKeyRange;
+			window.IDBTransaction = window.IDBTransaction ||
+			window.webkitIDBTransaction;
+			//数据库对象
+			var db;
+			//数据库名称
+			var DBName=['studentsDB'];
+			//数据库初始版本
+			var version=1;
+			//数据库仓库表名称
+			var storeName=['students'];
+			//学生的json格式数据数组
+			var students=[{ 
+						id:2016001, 
+						name:"李刚", 
+						age:20 },
+						{id:2016002, 
+						 name:"方佳", 
+						 age:19 },
+						{id:2016003, 
+						 name:"王强", 
+						 age:21 }];
+			//初始化数据
+			function init(){
+			 openDB(DBName,version);
+			// addData(db,storeName);
+
+			setTimeout(function(){initData(db,storeName,students);},1000); //写入三个记录
+			setTimeout(function(){showData(db,storeName);},1000);//显示记录
+			}
+			//打开或创建数据库
+			function openDB (DBName,version) {
+						var version=(version=null?1:version); //默认数据库版本为1
+						var req=window.indexedDB.open(DBName,version);
+						req.onerror=function(e){
+							console.log(e.currentTarget.error.message);
+						};
+						req.onsuccess=function(e){ //打开数据库 成功
+							db=e.target.result;
+							console.log("数据库："+DBName+"，版本号"+version+"打开成功！");
+						};
+						req.onupgradeneeded=function(e){
+							db=e.target.result;
+							if(!db.objectStoreNames.contains('students')){
+							   var store=db.createObjectStore('students',{keyPath:"id"}); //创建数据库仓库表为：students
+								   store.createIndex("name", "name", { unique: false });//给名字name建索引，索引名称也是name
+							}
+						 console.log('创建数据库仓库表为：students ');
+						};
+					}
+			//给students表添加数据
+			function initData(db,storeName,students){
+			var trans=db.transaction(storeName,'readwrite'); 
+						 trans.oncomplete = function(e) //事务操作完成事件
+						{
+						};
+						trans.onerror = function(e) //事务操作出错
+						{
+							console.dir(e);
+						};
+					   var store=trans.objectStore('students'); 
+						for(var i=0;i<students.length;i++){
+							var req=store.add(students[i]); 
+							req.onsuccess=function(e){ 
+							  console.log("成功添加数据！"); 
+							};
+							req.onerror=function(e){
+								console.log("Error",e.target.error.name);
+								console.log("添加数据失败！"); 
+							};
+						}
+						
+					}
+			//从网页获取数据
+			function inputData(cmd) {
+						var id=Number(document.querySelector("#id").value);//从表单获取id,姓名，年龄
+						var name=document.querySelector("#name").value;
+						var age=document.querySelector("#age").value;
+						if (!id) {alert("数据为空！");return;}
+						data={"id":id,"name":name,"age":age} //新数据json对象格式
+						if (cmd=="1") addData(db,storeName,data);
+						if (cmd=="2") updateData(db,storeName,data);
+						showData(db,storeName);
+			} 
+			//添加数据
+			function addData(db,storeName,data){
+			var trans=db.transaction(storeName,'readwrite'); 
+						 trans.oncomplete = function(e) //事务操作完成事件
+						{
+						};
+						trans.onerror = function(e) //事务操作出错
+						{
+							console.dir(e);
+						};
+						var store=trans.objectStore('students'); 
+							var req=store.add(data); 
+							req.onsuccess=function(e){ 
+						  console.log("成功添加数据！"); 
+						};
+						req.onerror=function(e){
+							console.log("Error",e.target.error.name);
+							console.log("添加数据失败！"); 
+						};
+						}   
+			//数据查询
+			function getData(db,storeName,key){
+			var found=false;
+			var trans=db.transaction(storeName,'readonly'); 
+						 trans.oncomplete = function(e) //事务操作完成事件
+						{
+						 console.dir(e);
+						};
+						trans.onerror = function(e) //事务操作出错
+						{
+							console.dir(e);
+						};
+						var store=trans.objectStore("students"); 
+						var req=store.get(key); 
+						req.onsuccess=function(e){ 
+							var student=e.target.result; 
+							console.dir(student); 
+							found= true;
+							//alert("found");
+						};
+						req.onerror=function(e){
+							console.log("Error",e.target.error.name);
+							found= false;
+						};
+						return found;
+			}
+			//数据更新修改
+			function updateData(db,storeName,data){
+			var trans=db.transaction(storeName,'readwrite'); 
+						 trans.oncomplete = function(e) //事务操作完成事件
+						{
+						};
+						trans.onerror = function(e) //事务操作出错
+						{
+							console.dir(e);
+						};
+						var store=trans.objectStore('students'); 
+							var req=store.put(data); 
+							req.onsuccess=function(e){ 
+						  console.log("成功更新数据！"); 
+						};
+						req.onerror=function(e){
+							console.log("Error",e.target.error.name);
+							console.log("更新数据失败！"); 
+						};
+						}
+			//删除数据
+			function delData(db,storeName,key){
+			var trans=db.transaction(storeName,'readwrite'); 
+						 trans.oncomplete = function(e) //事务操作完成事件
+						{
+						};
+						trans.onerror = function(e) //事务操作出错
+						{
+							console.dir(e);
+						};
+						var store=trans.objectStore('students'); 
+						var req=store.delete(key); 
+							req.onsuccess=function(e){ 
+							console.log("成功删除记录！"); 
+						};
+						req.onerror=function(e){
+							console.log("Error",e.target.error.name);
+						};
+					}
+			//关闭数据库
+			function closeDB(db){
+						db.close();
+					}
+			//显示数据列表
+			function showData(db,storeName){
+			var trans=db.transaction(storeName,'readonly'); 
+						 trans.oncomplete = function(e) //事务操作完成事件
+						{
+						};
+						trans.onerror = function(e) //事务操作出错
+						{
+							console.dir(e);
+						};
+						var store=trans.objectStore('students'); 
+			 var list =document.querySelector("#list");	
+			 var childList = list.getElementsByTagName('div'); //清除list标签下的所有子标签
+						 var len=childList.length;
+						  while(len>0){
+						  len--;
+						  list.removeChild(list.childNodes[len]); 
+						  };
+			//游标开始
+			 store.openCursor().onsuccess = function(e) 
+					{  
+					  cursor = e.target.result; //获得结果游标
+					
+					 if (!cursor) {
+						 
+						  return
+					 };
+					 console.log("key",cursor.key);
+					 console.log("value",cursor.value);
+					 var key=cursor.value.id;
+					 var name=cursor.value.name;
+					 var age=cursor.value.age;
+					 var div=document.createElement("div");		
+					 var sp1=document.createElement("span");
+					 var sp2=document.createElement("span");
+					 var sp3=document.createElement("span");
+							sp1.innerHTML=key+"---";//显示ID
+							sp2.innerHTML=name+"---";//显示姓名
+							sp3.innerHTML=age+"---";//显示年龄
+							div.appendChild(sp1);
+							div.appendChild(sp2);
+							div.appendChild(sp3);
+							list.appendChild(div);	
+							div.onclick=function(){
+							this.style.background="grey";
+							document.querySelector("#id").value=key;//获取id 姓名，年龄填入表单
+							document.querySelector("#name").value=name;
+							document.querySelector("#age").value=age;
+							var person=[{"id":id,"name":name,"age":age}] //json对象格式，数组
+
+							if (confirm("选择<确定>删除记录，选择<取消>修改数据"))
+							{delData(db,storeName,key);
+							this.style.display="none";
+							document.querySelector("#id").value='';
+							document.querySelector("#name").value='';
+							document.querySelector("#age").value='';
+							};
+							};
+						  cursor.continue();
+			}
+			}		
+			window.addEventListener("DOMContentLoaded", init, false);
+		</script>
+	</head>
+	<body>
+
+		数据输入：
+		ID：<input id="id" type="number" maxlength="12"/>
+		姓名：<input id="name" type="text" maxlength="12"/>
+		年龄：<input id="age" type="number" maxlength="2"/>
+		<br />
+		<button onclick="inputData('1')">添加</button>
+		<button onclick="inputData('2')">修改</button>
+		<p>点击数据列表，修改或删除数据</p><br />
+		<div id="tab">
+				<span>---ID---</span>
+				<span>--姓名--</span>
+				<span>--年龄--</span>
+		</div><br />
+		<div id="list"></div>
+	</body>
+</html>

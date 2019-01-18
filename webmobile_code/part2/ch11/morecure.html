@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>画曲线</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function drawLine() {
+			var canvas = document.getElementById("canvas1");
+			var context = canvas.getContext("2d");
+			context.beginPath();
+			context.moveTo(20,20);           // 开始点
+			context.lineTo(100,20);          // 水平线
+			context.arcTo(150,30,150,80,60); // 画曲线
+			context.lineTo(150,150);         // 垂直线
+			//context.closePath();
+			context.stroke();//画轮廓
+			//二次贝塞尔曲线
+			context.beginPath();
+			context.moveTo(20,20);
+			context.quadraticCurveTo(20,100,200,20);
+			context.stroke();//画轮廓
+			//三次贝塞尔曲线
+			context.beginPath();
+			context.moveTo(20,20);
+			context.bezierCurveTo(20,100,200,100,200,20);
+			context.stroke();//画轮廓
+		}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="350" height="450" id="canvas1" onclick="drawLine();"></canvas>
+	</body>
+</html>

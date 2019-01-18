@@ -1,0 +1,29 @@
+div#home{width:960px;
+		margin:auto;
+		color:white;
+		text-align:center;
+		font-size:25px;}
+header{height:100px;
+	background-color:red;
+	}
+nav{height:30px;
+	background-color:green;
+	margin-top:5px;
+	}
+aside{height:600px;
+		margin-top:5px;
+		width:28%;
+		background-color:pink;
+		float:right;}
+footer{height:80px;
+			margin-top:5px;
+			background-color:#345566;}
+section#main{height:600px;
+			margin-top:5px;
+			width:71%;
+			margin-right:5px;
+			background-color:blue;
+	}
+article.aa {background:#662233;
+			height:48%;
+			margin-bottom:3px;}

@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>例子9-1 JS占位符</title>
+		<style>
+		.ph {color: #999;}
+		.no-ph {color: #000;}
+	}
+		</style>
+	</head>
+	<body>
+		<form>
+			Name：<input type="text" value="Fill in your full name" maxlength="100" size="50"
+			 onfocus="if (this.value == 'Fill in your full name') 
+			{ this.value = ''; this.className = 'no-ph';}" 
+			onblur="if (this.value == '') 
+			{this.value = 'Fill in your full name'; this.className='ph';}" class="ph">
+		</form>
+	</body>
+</html>

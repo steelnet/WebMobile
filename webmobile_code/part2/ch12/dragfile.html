@@ -1,0 +1,41 @@
+﻿<!DOCTYPE HTML>    
+<html>    
+    <head>    
+		<title>例子12-6 从外部拖放图片到浏览器</title> 
+		<style>    
+			*       { padding:0px;margin:0px;}    
+			#oDiv1  {width:300px;height:300px;border:1px solid #000;}    
+		</style>    
+    </head>    
+    <body>   
+		<h1>从操作系统拖放图片到浏览器的目标区域</h1>	
+        <div id="oDiv1"></div>    
+        <script>  
+            var oDiv1 = document.getElementById("oDiv1");  
+            oDiv1.ondragenter = function (ev) {  
+                this.style.borderStyle = "dashed";  
+            }  
+            oDiv1.ondrop = function (ev) {  
+                var files = ev.dataTransfer.files; 
+				var fileType= ev.dataTransfer.types; 
+                for (var i = 0, f; f = files[i]; i++) {  
+                    var reader = new FileReader();  
+					 reader.readAsDataURL(f);  
+					 reader.onload = function (f)  {
+					   oDiv1.innerHTML = '<img src="' + this.result + '" title="' + f.name + '" width="100%"  />'; 
+					 }
+                }  
+                this.style.borderStyle = "solid";  
+                ev.stopPropagation();  
+                ev.preventDefault();  
+            }  
+            oDiv1.ondragover = function (ev) {  
+                ev.stopPropagation();  
+                ev.preventDefault();  
+            }  
+            oDiv1.ondragleave = function (ev) {  
+                this.style.borderStyle = "solid";  
+            }  
+        </script>    
+	</body>    
+</html>    

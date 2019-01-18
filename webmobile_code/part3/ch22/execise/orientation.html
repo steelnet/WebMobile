@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>deviceorientation</title>
+		<script>
+			function showInfo(){
+			if (window.DeviceOrientationEvent) {   //检查浏览器支持设备方向感接口 
+				window.addEventListener('deviceorientation', function(event) 
+				//alpha沿z轴转动， beta沿y轴转动， gamma沿x轴转动， 单位弧度
+				{var a = event.alpha, b = event.beta, g = event.gamma;      
+				var ori=document.getElementById('orientation');
+				ori.innerHTML='Orientation - Alpha: ' + a + ', Beta: '+ b + ', Gamma: ' + g;
+				console.log('Orientation - Alpha: ' + a + ', Beta: '+ b + ', Gamma: ' + g);
+				}, false);} 
+			else 
+				{console.log('This device does not support deviceorientation');}
+				}
+		</script>
+	</head>
+	<body>
+		<div id="orientation"  onclick="showInfo();">
+		点击查看orientation信息    </div>
+	</body>
+<html>

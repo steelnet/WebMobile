@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>透明度圆</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function draw() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			 //设置线条外观
+			context.lineWdith=9;
+			context.strokeStyle="black";
+			//画第一个圆
+			context.fillStyle="rgb(100,150,180)"; //填充颜色
+			context.arc(100,100,100,0,2*Math.PI,true);
+			context.fill(); //画填充实心圆
+			context.stroke(); //化边框
+			
+			//画第二个圆
+			context.beginPath();
+			context.fillStyle="rgb(100,150,100)"; //填充颜色
+			context.arc(120,160,100,0,2*Math.PI,true);
+			context.globalAlpha=0.3;
+			context.fill(); //画填充实心圆
+			context.stroke(); //化边框  
+		}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="500" height="600" id="canvas1" onclick="draw();"></canvas>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>translate变换矩形</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function draw() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			 context.rect(0,0,30,30);
+			 context.translate(50,50); //把坐标系移动到画布（50,50）新的位置
+			 context.scale(2,2);//注释这个代码并与translate.html比较
+			 context.rotate(30*Math.PI/180);//注释这个代码并与translate.html比较
+			 context.rect(0,0,30,30);	
+			 context.stroke();
+		}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="500" height="600" id="canvas1" onclick="draw();"></canvas>
+	</body>
+</html>

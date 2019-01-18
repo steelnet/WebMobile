@@ -1,0 +1,27 @@
+<!DocTYPE html>
+<html>
+<head>
+<link rel ="stylesheet" type="text/css" href="meter/meter1.css"/>
+<meta charset="utf-8">
+<!--meta name="viewport" content="width=320px, initial-scale=1, maximum-scale=1"/-->
+</head>
+<body>
+	<p>
+	<!--在这个例子中，optimum>high 说明实际值高于high好=绿色，低于high=黄色，低于low=红色-->
+    默认的：（optimum &gt high）<meter low="69" high="80" max="100" optimum="85" value="92">A</meter>
+    <meter low="69" high="80" max="100" optimum="85" value="72">C</meter>
+    <meter low="69" high="80" max="100" optimum="85" value="52">E</meter>
+</p>
+	<p>
+	<!--在这个例子中，optimum<low 说明实际值低于low好=绿色，高于low=黄色，高于high=红色-->
+    默认的:（optimum &lt low）<meter low="69" high="80" max="100" optimum="60" value="92">A</meter>
+    <meter low="69" high="80" max="100" optimum="60" value="72">C</meter>
+    <meter low="69" high="80" max="100" optimum="60" value="62">E</meter>
+</p>
+<p class="deal">
+    处理的：<meter low="69" high="80" max="100" optimum="100" value="92">A</meter>
+    <meter low="69" high="80" max="100" optimum="100" value="72">C</meter>
+    <meter low="69" high="80" max="100" optimum="100" value="52">E</meter>
+</p>
+</body>
+</html>

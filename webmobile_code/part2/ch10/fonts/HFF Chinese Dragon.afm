@@ -1,0 +1,39 @@
+StartFontMetrics 2.0
+Comment Copyright HFF Chinese Dragon 2009 by Have Fun with Fonts. Free to use. Free to share. Free font! Have Fun!
+Comment Panose 2 0 0 0 0 0 0 0 0 0
+FullName HFF Chinese Dragon
+FontName HFFChineseDragon
+FamilyName HFF Chinese Dragon
+Weight Regular
+Notice HFF Chinese Dragon 2009 by Have Fun with Fonts. Free to use, share and enjoy.
+Version 1.000
+IsFixedPitch false
+ItalicAngle 0.00
+FontBBox 0 0 1892 975
+Ascender 975
+Descender -250
+XHeight 500
+CapHeight 750
+UnderlinePosition -100
+UnderlineThickness 50
+EncodingScheme AdobeStandardEncoding
+StartCharMetrics 17
+C 32 ; WX 50 ; N space ; B 0 0 0 0 ;
+C 65 ; WX 1942 ; N A ; B 50 0 1892 975 ;
+C 66 ; WX 1405 ; N B ; B 50 0 1355 975 ;
+C 67 ; WX 1278 ; N C ; B 50 0 1228 975 ;
+C 68 ; WX 1674 ; N D ; B 50 0 1624 975 ;
+C 69 ; WX 1470 ; N E ; B 50 0 1420 975 ;
+C 70 ; WX 1133 ; N F ; B 50 0 1083 975 ;
+C 71 ; WX 641 ; N G ; B 50 0 591 975 ;
+C 72 ; WX 659 ; N H ; B 50 0 609 975 ;
+C 97 ; WX 1942 ; N a ; B 50 0 1892 975 ;
+C 98 ; WX 1405 ; N b ; B 50 0 1355 975 ;
+C 99 ; WX 1278 ; N c ; B 50 0 1228 975 ;
+C 100 ; WX 1674 ; N d ; B 50 0 1624 975 ;
+C 101 ; WX 1470 ; N e ; B 50 0 1420 975 ;
+C 102 ; WX 1133 ; N f ; B 50 0 1083 975 ;
+C 103 ; WX 641 ; N g ; B 50 0 591 975 ;
+C 104 ; WX 659 ; N h ; B 50 0 609 975 ;
+EndCharMetrics
+EndFontMetrics

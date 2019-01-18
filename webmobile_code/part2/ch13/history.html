@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>history API演示</title>
+		<!--请将代码拷贝到web服务器运行-->
+		<meta charset="utf-8" />
+         <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"> </script>
+         <script type="text/javascript" src="history.js" > </script>
+        <style> #content{"width:200px;height:120px;background-color:lightgray"}</style>
+    </head>
+    <body onload="start();">
+        
+        <div id="menu">
+            选择下面页面查看不同内容：<br/>
+            <a href="/page1">第一页</a>
+            <a href="/page2">第二页</a>
+            <a href="/page3">第三页</a>
+            <a href="/page4">第四页</a>
+        </div>
+		<div id="content">首页开始</div>
+        <button onclick="back();">Back</button>
+        <button onclick="ff();">Forward</button>
+        <hr/>
+        <div>
+            Url: <span id="url"></span><br/>
+        </div>
+    </body>
+     
+</html>

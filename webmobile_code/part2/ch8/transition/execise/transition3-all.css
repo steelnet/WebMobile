@@ -1,0 +1,11 @@
+.sbutton{color:black; font-size:30px;font-weight:bold;padding 10px, border:solid 1px back;
+	background:lightgreen;cursor:pointer;
+	box-shadow:6px 6px 2px gray;
+	/* all是把上面定义的color， bakground，box-shadow属性产生过渡*/
+	-webkit-transition:all 0.5s;
+	-moz-transition:all 0.5s;
+	-o-transition:all 0.5s;
+	transition:all 0.5s;
+}
+.sbutton:hover {color:red;background:yellow;}
+.sbutton:active {box-shadow:6px 6px 60px white;}

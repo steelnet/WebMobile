@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>fillRect()画矩形轮廓并填充</title>	
+	<style>
+	canvas {border: solid thin black; }
+	</style>
+	
+	<SCRIPT>
+		function drawRect() {
+		 var canvas = document.getElementById("canvas1");
+		 var context = canvas.getContext("2d");
+		 
+		 context.lineWidth=3;
+		 context.fillStyle="rgb(120,111,176)";
+		context.fillRect(30,30,159,159);
+	}
+		function eraseRect(x,y) {
+		 var canvas = document.getElementById("canvas1");
+		 var cc = canvas.getContext("2d");
+		 cc.clearRect(x,y, 100,60);
+		
+		}
+	</SCRIPT>
+</head>
+<body>
+<form></form>
+	<canvas width="350" height="450" id="canvas1" onclick="drawRect();" ondblclick="eraseRect(50,50);">你的浏览器不支持canvas.</canvas>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>details，summary元素的javascript实现</title>
+		<meta charset="utf-8" />
+		<script>
+		window.onload=function () {
+		var details=document.getElementById("details");
+		var summary=document.getElementById("summary");
+		summary.style.display="none";
+		details.onclick=function(){
+			if (summary.style.display=="block"){summary.style.display="none";} 
+			else {summary.style.display="block";}
+
+		}
+		}
+		</script>
+	</head>
+	<body>
+		<div id="details">邮件地址
+			<div id="summary">
+			<p>中国广西南宁市…</p>
+			</div>
+		</div> 
+	</body>
+</html>

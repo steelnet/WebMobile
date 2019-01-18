@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请用webkit内核的做演示</title>
+    <style type="text/css">
+        body, a{
+            margin: 0px 0px;
+            padding: 0px 0px;
+            text-decoration: none;
+            color:#000;
+            font:18px MicroSoft Yahei;
+        }
+ 
+        p{
+            font:18px MicroSoft Yahei;
+            padding: 5px 10px;
+        }
+        .navi{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 65px;
+            background: #F5F7FA;
+            border: 3px solid #E6E9ED;
+            z-index: 2;
+            line-height: 65px;
+            padding-left: 10px;
+        }
+ 
+        #container{
+            position: fixed;
+            left: 0px;
+            top: 65px;
+            width: 100%;
+            height: 900px;
+            background-color: rgba(0,200,255,0.7);
+            z-index: 1;
+            transition-delay: 0.5s;
+            transition-duration: 1s;
+            margin: 0px 0px;
+        }
+ 
+ 
+        @media screen and (min-width: 570px){
+ 
+            #mobile_menu_btn{
+                display: none;
+            }
+ 
+            #mobile_menu{       
+                display: none;
+            }
+ 
+            .pc{
+                list-style: none;
+                height: 100%;
+                margin: 0px 0px;
+                width: 900px;
+                padding-left: 10px;
+            }
+ 
+            .pc > li{
+                display: inline-block;
+                width: 100px;
+                margin: 15px 0px;
+                text-align: center;
+                border: 1px solid #ccc;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 5px;
+                background: #ccc;
+                cursor: pointer;
+            }
+ 
+            .pc > li:hover{
+                background: #ccd;
+            }
+ 
+        }
+ 
+        @media screen and (max-width: 569px){
+ 
+            #mobile_menu{
+                position: fixed;
+                left: 0px;
+                top: 65px;
+                width: 300px;
+                background: rgba(200,200,200,0.1);
+                z-index: 0;
+                height: 800px;
+                display: block;
+            }
+ 
+            .mobile{
+                list-style: none;
+                padding: 0px 10px;
+            }
+ 
+            .mobile li{
+                margin: 10px 0px;
+                width: 100%;
+                border-bottom: 1px solid #ccc;
+                border-radius: 5px;
+                background: #ccc;
+                padding:5px 5px;
+                cursor: pointer;
+            }
+ 
+                .mobile > li:hover{
+                background: #ccd;
+            }
+            #mobile_menu_btn{
+                border:1px solid #ccc;
+                border-radius: 5px;
+                width: 50px;
+                height: 50px;
+                outline: none;
+                transition-duration: 1s;
+            }
+ 
+            #mobile_menu_btn:hover{
+                -webkit-transform: rotate(360deg);
+                background: #aab;
+                cursor: pointer;
+            }
+ 
+            .pc{
+                display: none;
+            }
+ 
+        }
+    </style>
+</head>
+<body>
+ 
+    <nav>
+        <div class="navi">
+            <button id="mobile_menu_btn" onclick="toggle()">Menu</button>
+            <ul class="pc">
+                <li><a href="http://my.oschina.net/sallency" target="_blank">首页</a></li>
+                <li><a href="#">新鲜事</a></li>
+                <li><a href="#">画册墙</a></li>
+                <li><a href="#">微小站</a></li>
+                <li><a href="http://my.oschina.net/sallency" target="_blank">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+ 
+    <div id="container">
+        <p>纯html+css+js控制，没写那么全面，做个小演示而已，所以你得用webkit内核的浏览器看，但别用360，谢谢，这货是浏览器？別開玩笑了！<a href="http://my.oschina.net/sallency" target="_blank">【我的博客】</a></p>  
+    </div>
+ 
+    <div id="mobile_menu">
+        <ul class="mobile">
+            <li><a href="http://my.oschina.net/sallency" target="_blank">首页</a></li>
+            <li><a href="#">新鲜事</a></li>
+            <li><a href="#">画册墙</a></li>
+            <li><a href="#">微小站</a></li>
+            <li><a href="http://my.oschina.net/sallency" target="_blank">关于我们</a></li>
+        </ul>
+    </div>
+ 
+    <script type="text/javascript">
+        function toggle(){
+            var container = document.getElementById("container");
+            if(container.style.WebkitTransform  == ''){
+                container.style.WebkitTransform  = 'translateX(300px)';
+            } else {
+                container.style.WebkitTransform  = '';
+            }
+        }
+    </script>
+</body>
+</html>

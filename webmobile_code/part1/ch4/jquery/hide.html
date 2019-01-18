@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>&lt;例子4-15&gt;&nbsp;&nbsp;jQuery技术</title>
+	<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script-->
+		<script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){ //相当于window.onload=function() {};
+			  $("h1").click(function(){    //相当于document.getElelmentById("h1").onclick=function () {this.style.display=none;}
+			  $(this).hide("3000"); //show()和hide()是一对显示隐藏DOM对象的jquery函数，可以带特效参数。”slow“
+			  });
+			});
+		</script>
+	</head>
+	<body>
+		<h1>If you click on me, I will disappear.</h1>
+	</body>
+</html> 

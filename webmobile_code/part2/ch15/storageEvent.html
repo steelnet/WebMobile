@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>例子15-2 通过web存储事件检查计数器数值变化</title>	
+		<!--请使用firefox浏览器分别打开两个窗口，一个窗口的访问计数变化时，另一个窗口会激活存储事件-->
+		<style>
+		</style>
+		<!--加载jQuery库包-->
+		<script src="JQUERY\jquery-ui-1.10.4.custom\js\jquery-1.10.2.js"></script>
+		<script src="JQUERY\jquery-ui-1.10.4.custom\js\jquery-ui-1.10.4.custom.min.js"></script>
+		<script>
+		//localStorage 计数器
+			function countDate() {
+			var cc=1;
+			//localStorage.clear();
+			var ct=localStorage["count"]; //获得计数器
+			//var ct=localStorage.getItem("count");
+			if (ct!=null) {
+				cc=Number(ct);
+				//alert("visit"+cc);
+				var dd=new Date(localStorage["visitdate"]);//获得时间
+				document.getElementById("counts").innerHTML="你访问本网页第"+ct+"次"+"上次访问时间是"+dd;
+				}
+			else {$("#counts").html("你是第一次访问本网页");}
+			cc++;
+			localStorage["count"]=cc;//保存计数器
+			var td=new Date();
+			var mm=Number(td.getMonth())+1;
+			var last=td.getFullYear()+"/"+mm+"/"+td.getDate()+" "+td.getHours()+":"+td.getMinutes()+":"+td.getSeconds();
+			localStorage.visitdate=last;//保存时间
+			//localStorage["visitdate"]=last;
+			};
+			// web sessionStorage 保存用户同意条款
+			function checkSession(){
+				$("#read").click(function() {
+					if ($(this).prop('checked')) { //$()[0].attr('checked'), $().is(':checked');$(‘#checkBox’)[0].attr(‘checked’,true);
+						alert("你已经阅读并同意了条款，通过浏览器sessionStorage保存这个状态！");
+						sessionStorage["read"]= "yes";
+					} else {
+						alert("你没有同意条款，浏览器保存session存储！");
+						sessionStorage.setItem("read", "no");
+					}
+					});
+
+					$("#checkRead").click(function() {
+						if (sessionStorage.read == "yes") {
+							$("#isRead").html("<p>你已经阅读并同意了条款!<\p>");
+							$("#read").attr("checked", "checked");
+						} else {
+							$("#isRead").html("<p>你没有阅读并同意条款！<\p>");
+							$("#read").removeAttr("checked"); //移除页面的勾选标记
+							sessionStorage.removeItem("read"); //删除read的session数据
+						};
+						});
+					};
+			function storagechanged(e){
+				alert("存储有更新了！");
+				//if (!e) { e = window.event; }//IE
+				var mm=document.getElementById("changed");
+				mm.innerHTML="<br>Key:"+e.key;
+				mm.innerHTML+="<br>OldValue:"+e.oldValue;
+				mm.innerHTML+="<br>newvalue:"+e.newValue;
+				mm.innerHTML+="<br>url:"+e.url;
+			};	
+			
+			$(document).ready(function(e) {
+				if (typeof(Storage)!=="undefined")	alert("浏览器支持web存储！");
+				/*if (window.localSession) {
+				alert("浏览器支持web存储！");*/
+					checkSession();
+					countDate();
+					window.addEventListener('storage',storagechanged,false);
+				/*}
+				else 
+				alert("浏览器不支持web存储！");*/
+			});
+		</script>
+	</head>
+	<body>
+		欢迎访问我的网站！
+		<h1 id="counts"></h1>
+		<p>你好！请仔细阅读以下条款......</p>
+		<p><input type="checkbox" id="read">如果已经阅读并同意，请勾选</p>
+		<button id="checkRead">检查条款状态</button>
+		<p><div id="isRead"></div>
+		<p>存储更新信息：</p>
+		<p id="changed"></p>
+	</body>
+</html>

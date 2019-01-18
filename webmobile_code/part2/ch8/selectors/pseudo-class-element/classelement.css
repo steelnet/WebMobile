@@ -1,0 +1,13 @@
+a {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	text-decoration: none;
+	color: #000;
+	font-size: 32px;
+	padding: 50px 20px;
+}
+
+/*a:hover::before, a:hover::after { position: absolute; }*/
+a:hover::before { content: "\5B"; left: -20px; }
+a:hover::after { content: "\5D"; right:  -20px; }

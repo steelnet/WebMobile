@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>output元素</title>
+<script>
+	function characterCount(inputFieldId, infoBlockId) {
+	//alert('hi');
+	  var characters = document.getElementById(inputFieldId).value.length;
+	   document.getElementById(infoBlockId).value=characters;
+	//  document.getElementById(infoBlockId).innerHTML = characters;
+	}
+	function doCalc()
+	{
+　　//从document对象中，获取select标签
+　　var op=document.getElementById("OpSelect");
+　　//select标签获取的值其实是一个数组--op.options[]; 然后，选定项的下标是--op.selectedIndex
+    var operator=op.options[op.selectedIndex].value; 
+	　// alert(operator);
+	var ff=document.getElementById("compute");
+	
+	
+	//ff.x.value = ff.a.valueAsNumber+operator+ff.b.valueAsNumber;
+	switch (operator)
+	{
+	case '+':
+	ff.x.value = ff.a.valueAsNumber+ff.b.valueAsNumber
+	  break;
+	case '-':
+	ff.x.value = ff.a.valueAsNumber-ff.b.valueAsNumber
+	  break;
+	case '*':
+	 ff.x.value = ff.a.valueAsNumber*ff.b.valueAsNumber
+	  break;
+	case '/':
+	 ff.x.value = ff.a.valueAsNumber/ff.b.valueAsNumber
+	  break;
+		} 
+	}
+</script>
+
+</head>
+<body>
+<form oninput ="document.getElementById('chars').value=document.getElementById('ta').value.length;">
+  <textarea  id="ta"></textarea>
+  <output  id="chars" ></output>  
+</form>
+<!-- valueAsNumber html5的数字转换器,parseInt() -->
+<form id="compute" onsubmit="return false" oninput="doCalc();"> 
+  <input name="a" type="number" step="1"/>
+  <!--select 和datalist的区别(要在input标签里面，input属性list=datalist属性id)，外观没有下拉箭头-->
+  <!--input list="Opselect"><datalist id="Opselect" -->
+  <select size="1" id="OpSelect" name="select">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+		<option value="/">/</option>
+   </select>
+   <!--/datalist></input-->
+  <input name="b" type="number" step="1"/> =
+  <output name="x"></output>
+</form>
+</body>
+</html>

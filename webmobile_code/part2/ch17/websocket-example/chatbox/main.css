@@ -1,0 +1,57 @@
+* {
+	font-family: Verdana;
+	font-size: 13px;
+}
+
+.box1 {
+	float: left;
+}
+.box2 {
+	float: left;
+	margin-left: 5px;
+}
+
+#chatLines {
+	width: 600px;
+	height: 400px;
+	margin: 0px;
+	margin-bottom: 5px;
+	border: solid 1px #000000;
+	resize: none;
+}
+#chatInput {
+	width: 600px;
+	height: 50px;
+	margin: 0px;
+	border: solid 1px #000000;
+	resize: vertical;
+}
+
+#usernameInput {
+	width: 180px;
+	height: 24px;
+	margin-bottom: 5px;
+	border: solid 1px #000000;
+}
+#connectButton {
+	width: 184px;
+	height: 28px;
+	margin-left: -1px;
+	margin-bottom: 5px;
+}
+#usersList {
+	border: solid 1px #000000;
+	margin: 0px;
+	padding: 0px;
+	width: 180px;
+	height: 334px;
+	list-style-type: none;
+	margin-bottom: 5px;
+	overflow: auto;
+}
+#sendButton {
+	width: 184px;
+	height: 54px;
+	margin-left: -1px;
+	margin-top: -1px;
+}

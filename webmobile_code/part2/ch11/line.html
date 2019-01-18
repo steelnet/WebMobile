@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>画线</title>	
+		<style>
+		canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function drawLine() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			 context.moveTo(10,10); //移动到画线的起点
+			 context.lineTo(250,50); //画线的终点
+			 context.lineTo(100,100);
+			 context.stroke();  //执行画线
+		}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="350" height="450" id="canvas1" onclick="drawLine();"></canvas>
+	</body>
+</html>

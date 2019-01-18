@@ -1,0 +1,18 @@
+<!DOCTYPE html> 
+<html manifest="cachefile.manifest">
+	<head> 
+		<meta charset="UTF-8"/> 
+		<title> HTML5离线缓存 </title> 
+		<!--请使用GoogleChrome浏览器测试-->
+		<script src="test.js"></script>
+		<script src="offline.js"></script>
+	</head> 
+	<body> 
+		<h1>将服务器关闭，看看你还可以看到QQ吗？</h1>
+		<img src="qq_logo.png" width="50" height="50"/>
+		<h1 id="hh1" onclick="onlineCall()">将服务器关闭，你还可以点击我吗？</h1>
+		<!--将服务器关闭，在浏览器的设置里把缓存清除，修改缓存清单文件，
+		将qq_logo.png，test.js放到缓存CACHE:下，再看看离线应用-->
+
+	</body> 
+</html> 

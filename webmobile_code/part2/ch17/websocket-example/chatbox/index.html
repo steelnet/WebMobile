@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset='UTF-8' />
+	<link rel='stylesheet' type='text/css' href='main.css' />
+	<script type='text/javascript' src='main.js'></script>
+</head>
+
+<body>
+	
+	<div class='box1'>
+		<textarea id='chatLines' readonly='readonly'></textarea><br />
+		<textarea id='chatInput' placeholder='message'></textarea>
+	</div>
+	
+	<div class='box2'>
+		<input id='usernameInput' type='text' placeholder='username' /><br />
+		<input id='connectButton' type='button' value='Connect' onclick='cb.onClickConnect()' /><br />
+		<ul id='usersList'><li style='text-align:center;'>(not connected)</li></ul>
+		<input id='sendButton' type='button' value='Send' onclick='cb.onClickSend()' />
+	</div>
+	
+</body>
+
+</html>

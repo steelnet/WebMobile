@@ -1,0 +1,12 @@
+.tbox1{	background:rgba(110,143,11,0.3);}
+.tbox2{	background:rgb(210,243,21); 
+		background:rgba(110,143,11,0.3);}
+.tbox3{	background:rgb(222,111,21);opacity:0.3;}
+body{
+	background:url(images/ff.jpg);
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+	/*background:yellow;*/
+	
+	}
+

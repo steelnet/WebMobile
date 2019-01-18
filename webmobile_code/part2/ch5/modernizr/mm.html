@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html class="no-js">
+<head>
+	<meta charset="utf-8"/>
+	<script src="Modernizr/modernizr.custom.28187.js" type="text/javascript"></script>
+	<!--script src="Modernizr/jquery-1.11.0.min.js" type="text/javascript"></script-->
+	<!--优雅降级-->
+	<!-- CSS3新特征-->
+	<style>
+	<!--浏览器支持boxshadow的话，会看到黄色带阴影的条块-->
+		.boxshadow #MyContainer {
+			background-color:yellow;
+			border: none;
+			-webkit-box-shadow: #666 1px 1px 1px;
+			-moz-box-shadow: #666 1px 1px 1px;
+		}
+	<!--浏览器不支持boxshadow的话，会看到黑色实线框条块-->		
+		.no-boxshadow #MyContainer {
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div id="MyContainer">
+	<p>新特征检测</p>
+	</div>
+	<!--新特征检测-->
+	<script>
+		if (Modernizr.canvas) {
+			//Add canvas code
+			alert("画布支持！");
+		}
+		else {alert("不支持画布！");
+		}
+
+		if (Modernizr.localstorage) {
+			//Add local storage code
+			alert("本地存储支持！");
+		}
+		else {alert("不支持本地存储！");
+		}
+		if (Modernizr.boxshadow) {
+			//Add local storage code
+			alert("盒子阴影支持！");
+		}
+		else {alert("不支持盒子阴影！");
+		}
+		if (Modernizr.applicationCache) {
+			//Add local storage code
+			alert("离线应用支持！");
+		}
+		else {alert("不支持离线应用！");
+		}
+	</script>
+</body>
+</html>

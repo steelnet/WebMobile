@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+ <html>
+	<head>
+			<meta charset="utf-8" /> 
+			<title>WebSocket Test</title>  
+		<script language="javascript" type="text/javascript">  
+			 var wsUri = "ws://echo.websocket.org/"; 
+			 var output;  
+			 var websocket;
+			 var msg;
+			 function testWebSocket() { websocket = new WebSocket(wsUri); 
+				 msg=document.getElementById("msg").value;
+				 websocket.onopen = function(evt) { onOpen(evt) }; 
+				 websocket.onclose = function(evt) { onClose(evt) }; 
+				 websocket.onmessage = function(evt) { onMessage(evt) }; 
+				 websocket.onerror = function(evt) { onError(evt) }; 
+				 return false;} 
+			 function onOpen(evt) { writeToScreen("CONNECTED"); doSend(msg+"你好！"); }  
+			 function onClose(evt) { writeToScreen("DISCONNECTED"); }  
+			 function onMessage(evt) { writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'); websocket.close(); }  
+			 function onError(evt) { writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data); } 
+			 function doSend(message) { writeToScreen("SENT: " + message);  websocket.send(message); }
+			 function writeToScreen(message) { output = document.getElementById("output"); var pre = document.createElement("p"); pre.style.wordWrap = "break-word"; pre.innerHTML = message; output.appendChild(pre); } 
+		</script>  
+	</head>
+	<body>
+		<h2>WebSocket Test</h2> 
+		<form id="ff" onsubmit="return testWebSocket()">
+			<input type="text" id="msg"></input>
+			<input type="submit" value="发送"></input>
+		</form>
+		<div id="output"></div> 
+	 </body>
+ </html>
+ 

@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>&lt;例子4-6&gt;&nbsp;&nbsp;DOM技术</title>
+	</head>
+	<body>
+		<div id="d1"style=background-color:yellow> 
+			<p id="p1">段落1</p> 
+			<p id="p2">段落2</p>
+		</div>
+		<script>
+			var para=document.createElement("p"); 
+			var node=document.createTextNode("段落3是通过DOM技术插入的"); 
+			para.appendChild(node);
+			var ele=document.getElementById("d1");
+			ele.appendChild(para);
+			document.write("<p>段落4是用write插入的</p>");
+		</script>
+	</body>
+</html>

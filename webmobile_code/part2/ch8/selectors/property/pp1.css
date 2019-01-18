@@ -1,0 +1,10 @@
+a[data-images~="local"] {
+   color: green;
+}
+ 
+a[data-images~="image"] {
+   border: 1px solid black;
+}
+li[class|="A3"] {
+	color: #A10;
+}

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>自定义数据</title>
+		<script>
+		//js
+		function showInfo() {
+		var profile= document.getElementById('profile');
+		profile.setAttribute("data-age","36");//修改网页自定义数据数据
+		profile.innerHTML="<br>姓名:"+profile.getAttribute("data-my-name")+"<br>年龄:"+profile.getAttribute("data-age");
+
+		}
+		</script>
+	</head>
+	<body>
+		<div id="profile" data-age="34" data-gender="男" data-my-name="周化钢"
+		data-title="高级工程师" onclick="showInfo();">
+		点击查看我的简单信息    </div>
+	</body>
+<html>
+

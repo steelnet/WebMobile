@@ -1,0 +1,40 @@
+﻿<!doctype html>
+
+<html>
+
+	<head>
+			<title>例子21-1 地理位置检测</title>
+			<meta charset='UTF-8' />
+	</head>
+		<script>
+			window.onload=function () {
+				if (navigator.geolocation) {getLocation();} else alert ("浏览器不支持地理位置检测");}
+
+			function getLocation() {
+				navigator.geolocation.getCurrentPosition(onsuccess, onerror,positionOptions);
+				//alert("检测开始。。。");
+				}
+
+			function onsuccess(position) {
+				var lat = position.coords.latitude;
+				var lon = position.coords.longitude;
+				var acur=position.coords.accuracy;
+				alert("你的位置： "+ lat +" latitude, and "+ lon +" longitude."+"精确度是:"+acur+"米");
+
+				}
+
+			function onerror(positionError) {
+				alert('ERROR:' + positionError.code + ': ' + positionError.message);
+				}
+			var positionOptions = {
+			  enableHighAccuracy: false, 
+			  maximumAge     : 1330000, 
+			  timeout        : 36000
+			};
+		</script>
+	<body>
+		<h1>地理位置检测</h1>
+		
+	</body>
+
+</html>

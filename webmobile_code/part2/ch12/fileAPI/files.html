@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>通过File API读取文件属性</title>	
+		<meta charset="utf-8" />  
+		<!--请用google Chrome浏览器测试-->
+		<style>
+		</style>
+	</head>
+	<body>
+		请选择文件：
+		<input type="file" id="files" name="files[]" multiple />
+		<h1>文件列表：</h1>
+		<span>-----文件名----</span>
+		<span>----类型----</span>
+		<span>----大小----</span>
+		<span>--最近修改时间--</span>
+		<br />
+		<output id="list"></output>
+		<script>
+		   function processFile(e) {
+		    var files = e.target.files; // FileList 对象
+			// 输出文件属性.
+			var output = [];
+			for (var i = 0, f; f = files[i]; i++) {
+			  output.push(f.name+'--'+f.type+"--"+f.size+' bytes'+'--'+
+						  f.lastModifiedDate.toLocaleDateString());
+			};
+		   document.querySelector("#list").innerHTML = output.join('<br />');
+		   }
+		   document.getElementById('files').addEventListener('change', processFile, false); //相当于在<input onchange="handleFileSelect(this.files);" />
+		</script>
+	</body>
+</html>

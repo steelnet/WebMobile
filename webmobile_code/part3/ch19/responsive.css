@@ -1,0 +1,68 @@
+/*body{width:960px}
+img{width:150px;float:left}
+#nav {border:solid 1px black;
+	background:pink;
+	float:left;
+	width:260px;}	
+#main {border: solid 1px black;
+	background:red;
+	float:left;
+	width:500px;}
+
+#aside {border:solid 1px black;
+	background:yellow;
+	float:right;
+	width:200px;}
+	/*上面的代码是没有媒体查询，下面代码是使用媒体查询，分别比较不同的效果
+	打开chrome google浏览器，打开developer工具，点击toggle device toolbar，
+	选择不同宽度的分辨率，
+	当分辨率<480px时，引用的CSS定义会让布局变成单栏，main内容栏变白色，nav首页和aside作者栏变成粉红色背景
+	当分辨率>481px时，引用的CSS定义会让布局变成双栏，main内容栏变红色，nav首页和aside作者栏背景变成黄色
+	  */
+body{width:100%;
+font:100% "宋体",serif;}
+@media screen and (max-device-width:480px) {	
+	img[data-300px] {
+    content:url(attr(data-300px));
+	}
+	img{
+		width:auto;
+		max-width:100%;
+	float:left}  
+	#nav{border:solid 1px black;
+	background:pink;
+	float:none;
+	width:auto;}	
+	#main {
+		float:none;
+		width:auto;}
+	#aside {
+		background:pink;
+		float:none;
+		width:auto;}
+}
+@media screen and (min-device-width:481px) {
+	img[data-800px] {
+    content:url(attr(data-800px));
+	}
+	img{width:30%;
+	float:left}
+	#nav {border:solid 1px black;
+	background:yellow;
+	float:left;
+	width:27%;
+	height:auto}	
+	#main {
+	border: solid 1px black;
+	background:red;
+	float:left;
+	width:52%;
+	height:auto}
+    #aside {
+	border:solid 1px black;
+	background:yellow;
+	float:left;
+	width:27%;
+	height:auto
+	}
+}

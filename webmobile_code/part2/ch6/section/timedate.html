@@ -1,0 +1,18 @@
+﻿<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的time</title>
+		<script>
+			window.onload=function() {
+			var times=document.getElementById("tim");
+			var tt=times.getAttribute('datetime');	
+			times.onclick=function () {times.innerHTML=tt;};
+			}
+		</script>
+	</head>
+	<body>
+		我的书已经写了<progress max="24" value="12" title="chapters">一半</progress> 。这本书将在
+		<mark><time id="tim" datetime="2018-9-01">XXXXX（点击查看）</time></mark>完成。
+	</body>
+</html>

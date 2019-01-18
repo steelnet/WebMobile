@@ -1,0 +1,13 @@
+.deal meter { -webkit-appearance: none; }
+.deal ::-webkit-meter-bar {
+    height: 1em;
+    background: white;
+    border: 1px solid black;
+}
+.deal ::-webkit-meter-optimum-value { background: green; }	/* 好 */
+.deal ::-webkit-meter-suboptimum-value { background: orange; }	/* 凑合 */
+.deal ::-webkit-meter-even-less-good-value { background: blue; }	/* 糟糕 */
+
+.deal ::-moz-meter-bar {
+    background: rgba(0,96,0,.6);
+}

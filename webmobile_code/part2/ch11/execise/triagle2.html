@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>画三角形</title>	
+	<style>
+		canvas { border: solid thin black; }
+		<!--背景图-->
+		canvas {background-image:url(‘images/ff.jpg’);}
+	</style>
+	<SCRIPT>
+		function drawTri() {
+		 var canvas = document.getElementById("canvas1");
+		 var context = canvas.getContext("2d");
+			context.beginPath();
+		    context.moveTo(250,50); //移动到画线的起点
+			context.lineTo(50,250); //画线
+			context.lineTo(450,250); //画线
+			context.lineTo(250,50); //画线
+			context.lineWidth=10; //定义线条粗细
+			context.strokeStyle="rgb(200,12,15)"; //定义颜色
+			context.stroke();  //执行画线
+			context.closePath(); //关闭图形路径
+			
+			context.fillStyle="rgba(200,12,15,0.5)"; 
+			//context.fillStyle="blue"; 定义填充色, 加入透明度设定
+			context.fill(); //执行填充
+		//	context.stroke();  //执行画线
+	}
+	function eraseTri() {
+		  var canvas = document.getElementById("canvas1");
+		  canvas.width = canvas.width;
+		}
+	</SCRIPT>
+</head>
+<body>
+	<canvas width="480" height="450" id="canvas1" onclick="drawTri();" ondblclick="eraseTri()"></canvas>
+</body>
+</html>

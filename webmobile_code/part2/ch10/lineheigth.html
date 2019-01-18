@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="utf-8"> 
+		<title>行高</title> 
+		<style type="text/css">
+			p.small{line-height: 0.5; color:green;} /* 默认字体16px*0.5=9px */
+			p.middle {line-height: 12px; color:red;} /*12px*/
+			p.percent {line-height: 500%; color:red;} /*16px * 500%=80px */
+		</style>
+	</head>
+
+	<body>
+		<p>默认的字体大小为16px</p>
+		<p class="small">
+			这是line-height=0.5行高。相当于16（px）x0.50=8px。
+		</p>
+		<p class="middle">
+			这是line-height=12px行高。
+		</p>
+		<p class="percent">
+			这是line-height=500%行高。相当于16（px）x50%=80px。
+		</p>
+	</body>
+</html>

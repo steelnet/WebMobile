@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>画有阴影的矩形</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function drawRect() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			 context.fillStyle="rgb(100,12,14)"; //定义填充颜色
+			
+			 //设置阴影
+			 context.shadowOffsetX=20;
+			 context.shadowOffsetY=-20; //往y轴的顶部扩展
+			 context.shadowBlur=5;
+			 context.shadowColor="gray";
+			 context.fillRect(30,30,159,159);
+
+		}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="350" height="450" id="canvas1" onclick="drawRect();"></canvas>
+	</body>
+</html>

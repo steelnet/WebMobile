@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>&lt;例子4-10&gt;&nbsp;&nbsp;事件</title>
+		<script>
+			window.onload=function () {
+			var pp=document.getElementsByTagName("p")[0];
+				pp.onclick=showPic;
+				function showPic() {window.open("images/qq_logo.png", "newwin","width=200, height=200 ");return false;}
+			}
+	   </script>
+	</head>
+	<body>
+		<p>查看图片</p>
+		<p>点击没有反应</P>
+	</body>
+</html>

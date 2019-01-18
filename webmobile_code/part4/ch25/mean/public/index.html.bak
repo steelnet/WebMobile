@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>MEAN development</title>
+    <script src="./js/libs/angular.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers.js"></script>        
+    <script src="./js/services.js"></script> 
+</head>
+<body ng-controller="userCtrl">
+ <input type="text" ng-model="username">
+ <input type="password" ng-model="password">  
+<button ng-click="register()">注册</button>
+<button ng-click="login()">登录</button>
+    {{message}}
+
+</body>
+</html>

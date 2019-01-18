@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+	  <meta charset="utf-8" />
+	  <title>关于人的微数据定义</title>
+	</head>
+	<body>
+	  <header>  
+		  <h1>个人介绍</h1>    
+	  </header>
+	  <section itemscope itemtype="http://data-vocabulary.org/Person">
+		<img itemprop="photo" width="204" height="250" src="images/qq.png" alt="[周老师]"/>
+		<h1>联系方式</h1>
+		<!--一下用dl，dt，dd标签描述数据-->
+		<dl>
+		  <dt>名字：</dt>
+		  <dd itemprop="name">周化钢</dd>
+
+		  <dt>职称：</dt>
+		  <dd><span itemprop="title">高级工程师</span>
+			  <span itemprop="affiliation">南宁学院</span></dd>
+		
+		  <dt>通信地址：</dt>
+		  <dd itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+			<span itemprop="country-name">中国</span> ，
+			<span itemprop="region">广西</span>，
+			<span itemprop="locality">南宁</span>，
+			<span itemprop="street-address">龙亭路8号</span><br>
+			<span itemprop="postal-code">530299</span><br>  
+		  </dd>
+		</dl>
+	  </section>   
+	</body>
+</html>

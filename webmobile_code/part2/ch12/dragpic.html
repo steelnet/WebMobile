@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>例子12-5 在浏览器内部拖放图片</title> 
+		<style type="text/css">
+			div
+			{float:left; width:100px; height:100px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+		</style>
+		<script type="text/javascript">
+			window.onload= function () {
+				var dragIt = document.getElementById('dragit');
+				var dropHere = document.getElementsByTagName('div'); //目标区数组
+				
+				dragIt.ondragstart = function(e){	
+				  e.dataTransfer.setData('Pic', e.target.id);//存储一个键值对text : value值必须是字符串
+				 // e.dataTransfer.effectAllowed = 'move';
+				 //this.parentNode.style.background = 'pine';	
+				//e.dataTransfer.setDragImage(this,0,0); 
+				};
+				for (var i=0;i<dropHere.length;i++){
+				dropHere[i].ondragenter = function(e){  //相当于onmouseover 
+				//	this.style.background = 'green'; 
+					};
+				dropHere[i].ondragover = function(e){
+				  e.dataTransfer.dropEffect = 'move';
+				  e.preventDefault(); // 不能少
+				  this.style.background = 'red';   
+				};
+				dropHere[i].ondragleave = function(){  //相当于onmouseout 
+				this.style.background = 'blue'; 
+				}; 
+				dropHere[i].ondrop = function(e){
+					//this.style.background = 'yellow'; 
+					//e.target.style.background = 'yellow'; 
+					e.preventDefault(); //防止浏览器默认打开这个拖拽的对象
+				  var data=e.dataTransfer.getData("Pic");//取回拖拽的标签元素
+					e.target.appendChild(document.getElementById(data)); //将拖拽的标签插入到目标标签下
+				};
+				dropHere[i].ondragend = function(e){  //移动完成的时候触发 
+					this.style.background = '';   
+				};
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>把图片从一个地方拖到另一个框</h1>
+		<div id="drophere1">
+		  <img src="images/qq_logo.png" draggable="true"  id="dragit" width="60" height="60"/>
+		</div>
+		<div id="drophere2" ></div>
+		<div id="drophere3" ></div>
+	</body>
+</html>

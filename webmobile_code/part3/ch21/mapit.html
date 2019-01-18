@@ -1,0 +1,42 @@
+﻿<!doctype html>
+
+<html>
+
+	<head>
+		<title>例子21-2 显示地图的地点标注</title>
+		<meta charset='UTF-8' />
+	</head>
+	<script>
+		window.onload=function () {
+			if (navigator.geolocation) {getLocation();} else alert ("浏览器不支持地理位置检测");}
+
+		function getLocation() {
+			navigator.geolocation.getCurrentPosition(onsuccess, onerror,positionOptions);
+			//alert("检测开始。。。");
+			}
+
+		function onsuccess(position) {
+			var lat = position.coords.latitude;
+			var lon = position.coords.longitude;
+			//alert("You are at "+ lat +" latitude, and "+ lon +" longitude.");
+			var baidu="http://api.map.baidu.com/marker?location=" +lat+","+lon+"&title=地址标题&content=地址信息&output=html&src=web地图";
+			var tenxun="http://apis.map.qq.com/uri/v1/marker?marker=coord:"+lat+","+lon+";title:南宁学院位置;addr:龙亭路8号&referer=web地图";
+			//将下面代码的变量tenxun换成baidu试试看
+			window.location=tenxun;
+			}
+
+		function onerror(positionError) {
+			alert('ERROR:' + positionError.code + ': ' + positionError.message);
+			}
+		var positionOptions = {
+		  enableHighAccuracy: false, 
+		  maximumAge     : 1330000, 
+		  timeout        : 36000
+		}
+	</script>
+	<body>
+		<h1>地理位置检测</h1>
+		
+	</body>
+
+</html>

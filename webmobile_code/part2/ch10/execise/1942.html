@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Chapter 13作业</title> 
+<link rel="stylesheet" href="1942report_regular_macroman/stylesheet.css" type="text/css" charset="utf-8" />
+<style> 
+canvas { border: solid thin black; }
+h1, h2, h3
+{
+	font-family: '1942_report', sans-serif; 
+	font-weight:bold;
+	font-variant:small-caps;
+}
+body{
+	font-family:serif;
+}
+h1{
+	font-size:72pt;
+	margin-bottom:0pt;
+	margin-top:0pt;
+}
+
+/*transformation CSS*/
+
+.leftName{
+	transform:rotate(-30deg);
+}
+
+.rightName{
+
+}
+</style> 
+<SCRIPT>
+		window.onload=function () {
+		 var canvas = document.getElementById("canvas1");
+		 var context = canvas.getContext("2d");
+		var img = new Image();
+		img.src = "images/qq_logo.png";
+		img.onload = function() {
+		context.drawImage(img, 60,60);
+		context.font="300% 1942_report";
+		context.strokeText("1942",100,10); 
+		}
+			}
+	</SCRIPT>
+</head> 
+<body> 	
+<canvas width="350" height="450" id="canvas1"></canvas>
+
+<h1> WANTED</h1>
+<H1 class="leftName" >1942</H1>
+</body> 
+</html> 

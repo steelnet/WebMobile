@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>表单验证</title>	
+
+</head>
+<style>
+input, textarea {
+background: #f4f4f4;
+border: solid 1px #a3a3a3;
+padding: 0.5em 0.75em;
+box-shadow: inset 0 0.2em 0.3em rgba(0,0,250,.1);
+-webkit-box-shadow: inset 0 0.2em 0.3em rgba(0,0,250,.1);
+-moz-box-shadow: inset 0 0.2em 0.3em rgba(0,0,250,.1);
+}
+input[type=text]:focus, textarea:focus {
+background: #fff;
+border-color: #333;
+outline: none;
+box-shadow: inset 0 0.2em 0.3em rgba(0,0,0,.1);
+-webkit-box-shadow: inset 0 0.2em 0.3em rgba(0,0,0,.1);
+-moz-box-shadow: inset 0 0.2em 0.3em rgba(0,0,0,.1);
+}
+input {
+width: 20em;
+}
+input[type=submit] {
+width: 10em;
+border-radius: 0.5em;
+-webkit-border-radius: 0.5em;
+-moz-border-radius: 0.5em;
+}
+textarea {
+width: 35em;
+height: 20em;
+}
+fieldset {
+border: rgba(0,0,250,.2) double 0.4em;
+background-color: #fff;
+border-radius: 1em;
+-webkit-border-radius: 1em;
+-moz-border-radius: 1em;
+}
+legend {
+font: 1.8em "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+</style>
+<body>
+<form>
+<input type=email id=email>
+<input type=url id=URL>
+<input type=date id=replyBy>
+<input type=number id=budget>
+
+<label for=name>Name:</label>
+<input type=text id=name required>
+<input type=email id=email required>
+<textarea id=description required></textarea>
+<input type=date id=replyBy required>
+<input type=number id=budget required>
+
+<input type=text id=phone pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+placeholder="(###) ###-####">
+<input type=number id=budget required min=300 max=5000 step=100>
+
+
+</form>
+
+<form action="mailto:your-email-address" method=get>
+<fieldset>
+<legend>About You</legend>
+<p>Name:<br>
+<input type=text id=name required>
+<p>Email:<br>
+<input type=email id=email required>
+<p>Phone:<br>
+<input type=text id=phone pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+placeholder="(###) ###-####">
+<p>URL:<br>
+<input type=url id=URL>
+</fieldset>
+</FORM>
+</body>
+</html>

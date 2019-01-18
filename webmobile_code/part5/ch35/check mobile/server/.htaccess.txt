@@ -1,0 +1,3 @@
+rewriteCond %{HTTP_USER_AGENT} "android|blackberry|ipad|iphone|ipod
+|iemoble|operamobile|palmos|webos|googlebot-moble" [NC]
+rewriteRule ^(.*)$ http://m.yoursitename.com/ [L R=302]

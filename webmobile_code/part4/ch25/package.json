@@ -1,0 +1,14 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "this is myapp",
+  "main": "ejstemp.js",
+  "scripts": {
+    "test": "node ejstemp.js"
+  },
+  "author": "joe",
+  "license": "ISC",
+  "dependencies": {
+    "jade": "^1.11.0"
+  }
+}

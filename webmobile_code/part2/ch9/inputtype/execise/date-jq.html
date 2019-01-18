@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>日期输入</title>
+	<link rel="stylesheet" href="modernizr/ui-lightness/jquery-ui-1.10.4.custom.css"/>
+	<script type="text/javascript" src="modernizr/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="modernizr/jquery-ui-1.10.4.custom.min.js"></script>
+	
+	<script type="text/javascript" src="modernizr/modernizr.custom.28187.js"></script>
+	<script>
+	$(document).ready(function(){ //window.onload=
+			$( "#d" ).datepicker({ dateFormat: 'yy-mm-dd' });
+			$("datetime-local").dateTimePicker();
+			$("t").timePicker();
+	  };
+	
+	</script>
+</head>
+<body>
+	<form>
+	日期：<input type="text" id="d"  />
+	日期时间：<input type="text" id="dt"  />
+	时间：<input type="text" id="t"  />
+	</form>
+</body>
+</html>

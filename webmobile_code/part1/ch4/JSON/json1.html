@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>&lt;例子4-13&gt;&nbsp;&nbsp;JSON对象 </title>	
+	</head>
+	<body>
+		<p>创建一个JSON对象</P>
+	<script>
+		var allstudent={
+			"students" : [
+			{ "name":"Joe" , "age":19 },
+			{ "name":"Mark" , "age":21 },
+			], 
+			"showStudent": function (i) {alert("第一个学生名字："+allstudent.students[i].name+ "，年龄："+allstudent.students[i].age);} }
+		allstudent.showStudent(0);
+	</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>读取文本文件</title>	
+		<meta charset="utf-8" />
+		<style>
+		</style>
+	</head>
+	<body>	
+		<input type="file" id="files" name="files[]" multiple="true" />
+		<output id="list"></output>
+		<script>
+		  function processFiles(evt) {
+			var files = evt.target.files; // FileList object
+
+			// Loop through the FileList and render image files as thumbnails.
+			for (var i = 0, file; file = files[i]; i++) {
+
+			 // alert(f.type);
+			  if (!/text\/\w+/.test(file.type)) {
+			  alert("不是文本文件！");
+				continue;
+			  }
+			  var reader = new FileReader();
+			//按utf-8编码集读取文本
+			  reader.readAsText(file,"utf-8");
+			  // FileReader()创建时产生onload事件，file是对应该事件的文件对象
+			 // reader.onload = (function(file) {
+			 //   return function(e) {
+			 //     var pre = document.createElement('pre');
+			//      pre.innerHTML = e.target.result;            
+			//      document.getElementById('list').insertBefore(pre, null);
+		   //     };
+			 // })(file);
+			  reader.onload =function(e) {
+				  // Render thumbnail.
+				  var pre = document.createElement('pre');
+				  pre.innerHTML = e.target.result;            
+				  document.getElementById('list').insertBefore(pre, null);
+				};
+			  }
+			}
+		  document.getElementById('files').addEventListener('change', processFiles, false);
+		</script>
+	</body>
+</html>

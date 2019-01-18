@@ -1,0 +1,35 @@
+
+ <!DOCTYPE HTML> 
+ <html>  
+	 <head>   
+		 <meta charset="utf-8"> 
+		 <title>FormData Ajax上传文件</title> 
+		 <!--安装node.js服务器，打开nodejs控制台窗口，进入ajaxupload目录下-->
+		 <!--执行：node server-node，接着，打开浏览器，输入url地址：http://localhost:8000/ajaxupload.html-->
+		 <!--选择一个文件上传，然后，到目录uploads下查看最新的上传文件，同时，可以在nodejs控制台看到服务器端的上传文件信息-->
+	 </head> 
+	 <body>
+		 <form id="form"> 
+			<input type="file" name="file" id="file" /> 
+		 </form> 
+		 <output></output>     
+		 <script>   
+			 var f=document.getElementById("file");
+			 function upload(){
+				 var fd = new FormData(); 
+				 fd.append("file", f.files[0]);
+				//ajax技术
+				 var xhr = new XMLHttpRequest();
+				 xhr.open("POST" ,"/upload" , true);  
+				 xhr.send(fd);  
+				 xhr.onreadystatechange = function() {
+					 if (xhr.readyState == 4 && xhr.status == 200) {
+						console.log(xhr.responseText); 
+						document.querySelector('output').innerHTML = xhr.responseText.ok;    
+							}
+						};
+				 };
+			 f.addEventListener('change', upload, false);
+		 </script> 
+	 </body> 
+ </html> 

@@ -1,0 +1,7 @@
+body>div{margin-top:0px;
+		margin-bottom:30px;
+	background-color:red;}
+body div div{background-color:blue;}
+.d1+div{background-color:yellow;}
+/*div.d1{background-color:red;}
+div.d2{background-color:blue;}*/

@@ -1,0 +1,53 @@
+﻿<!doctype html>
+
+<html>
+
+	<head>
+	<title>地理位置检测</title>
+		<meta charset='UTF-8' />
+	</head>
+	<script>
+		window.onload=function () {
+			if (supports_geolocation) getLocation(); else alert ("浏览器不支持地理位置检测");}
+
+			function supports_geolocation() {
+				return !!navigator.geolocation;
+				}
+
+			function getLocation() {
+				navigator.geolocation.getCurrentPosition(mapIt, locationError);
+				//alert("检测开始。。。");
+				}
+
+			function mapIt(position) {
+				var lat = position.coords.latitude;
+				var lon = position.coords.longitude;
+				alert("You are at "+ lat +" latitude, and "+ lon +" longitude.");
+				window.location="http://api.map.baidu.com/marker?location=" +lat+","+lon+"&title=我的位置&content=南宁学院&output=html&src=信息工程学院"
+				}
+
+			function locationError(error) {
+				switch(error) {
+				case 0: 
+				alert("unkown error");
+				break;
+				case 1:
+				alert("Location services denied");
+				break;
+				case 2:
+				alert("Could not contact location services network or satellites");
+				break;
+				case 3:
+				alert("Location services timed out");
+				break;
+				default:
+				alert("Location could not be determined.");
+				}
+		}
+	</script>
+	<body>
+		<h1>地理位置检测</h1>
+		
+	</body>
+
+</html>

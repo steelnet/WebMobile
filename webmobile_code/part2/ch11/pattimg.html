@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>画图案</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function draw() {
+			//alert("hello");
+			var patt=new Image();
+			patt.src="images/qq_logo.png";	
+			Patt.onload=function () {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			var newpatt=context.createPattern(patt, repeat-x);
+			context.fillStyle="red";
+			context.lineWidth=10;
+			context.strokStyle="black";
+			context.rect(0,0,150,100);
+			context.stroke();
+			context.fill();};
+			}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="350" height="450" id="canvas1" onclick="draw();"></canvas>
+	</body>
+</html>

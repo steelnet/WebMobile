@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script>
+			var video = document.createElement("video");
+			//检测是否支持video属性
+			function videoCheck() {
+			  return video.canPlayType; //检测canPlayType新属性
+			}
+			//检测是否支持H264视频格式
+			function h264Check() {
+			  if (!videoCheck) {
+				document.write("not");
+				return; 
+			  }
+			 
+			  if (!video.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"')) {
+				document.write("not"); 
+			  }
+			  return;
+			}
+			//检测html5表单是否支持range类型
+			function rangeCheck() {
+			  var i = document.createElement("input");
+			  i.setAttribute("type", "range");
+			  if (i.type == "text") {//不支持range类型的浏览器器只显示一个文本 ，="range"支持
+				document.write("not");
+			  }
+			  return;
+			}
+		</script>
+	</head>
+	<body>
+		<script>
+		//通过applicationCache离线对象是否存在
+		if (window.applicationCache) {
+			document.write("Yes, your browser can use offline web applications.<br>");
+		} else {
+			document.write("No, your browser cannot use offline web applications.<br>");
+		}
+		//通过创建HTML5新元素，并检测getContext函数对象是否返回“true”
+		if (document.createElement('canvas').getContext) {
+		  document.write("Yes, your browser can use the <code>&lt;canvas&gt;</code> tag.<br>");
+		} else {
+			document.write("No, your browser cannot use the <code>&lt;canvas&gt;</code> tag.<br>");
+		}
+		//检测浏览器是否支持视频
+		document.write("Your browser does ");
+		h264Check();
+		document.write(" support H.264 video.<br>");
+		</script>
+		<!--检测表单range类型的支持-->
+		 <article>
+			<p>
+			  <script>
+				document.write("Your browser does ");
+				rangeCheck();
+				document.write(" support the <code>&lt;input type=range&gt;</code> input type.<br>");
+			  </script>
+			</p>
+		</article>
+	</body>
+</html>

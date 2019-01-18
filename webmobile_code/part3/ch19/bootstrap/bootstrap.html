@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>例子19-5 Bootstrap </title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>你好，BOOTSTRAP世界！</h1>
+    <div class="container">
+      <div class="row">
+		<div id="header" style="background:pink;" class="col-md-12">
+        首页
+        </div>  
+      </div>
+      <div class="row">
+        <div id="main-content" class="col-md-6">
+        <h1>HTML5学习指南</h1>
+		<h2>通过媒体检测来决定使用不同的内部样式</h2>
+		<img  src="../images/qq300.png" data-300px="images/qq300.png" data-800px="images/qq800.png" alt=""></img>
+		<p>
+		网格（Grid）布局，是通过把一张网页划分成固定的格子结构，
+		来进行网页布局设计。这样可以让格子来定位和分配网页内容，
+		具有良友好的浏览体验。把一个页面拆分成多个网格区块，
+		当屏幕宽大的时候网格区块是自动向水平扩展，当屏幕变窄的
+		时候，格子区块纵向堆叠，从而实现响应式设计的页面布局。</p>
+          <hr>
+        </div>
+	  </div>
+	  <div class="row">
+        <div class="col-md-4">
+          <h1 style="background:green;"  >栏目一</h1>
+        </div>
+        <div class="col-md-4">
+         <h1 style="background:green;" >栏目二</h1>
+        </div>
+		<div class="col-md-4">
+         <h1 style="background:green;">栏目三</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div id="footer" style="background:yellow;" class="col-md-12">
+    <address>作者:XXXXX</address>
+        </div>  
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>通过web socket与php socket服务器连接</title>	
+<style>
+ 
+</style>
+
+<script src="http://EasyWebsocket.org/easyWebSocket.min.js"></script>   
+<script>
+    var socket = new EasyWebSocket("ws://localhost/resource");
+    socket.onopen   = function(){
+        socket.send("hello world.")
+    }
+    socket.onmessage= function(event){
+        alert("received"+ event.data)
+    }
+</script>
+
+</head>
+<body>
+<h1>建立web socket通信</h1>
+</body>
+</html>

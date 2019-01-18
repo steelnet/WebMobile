@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>表单验证</title>	
+
+	</head>
+	<body>
+		<form>
+			<!--禁用浏览器验证 form novalidate-->
+			*姓名： <input type="text" id="name" required />
+			国家代码: <input type="text" name="country_code" pattern="[A-z]{3}"  placeholder="xxx" title="三个字符" />
+			密码： <input type="password" id="pass" placeholder="请输入由8数字组成" pattern="[0-9]{8}" title="8位数字"/>
+			 <input type="submit" value="提交" />
+		</form>
+	</body>
+</html>

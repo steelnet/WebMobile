@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>output元素</title>
+	<script>
+		function characterCount(inputFieldId, infoBlockId) {
+		//alert('hi');
+		  var characters = document.getElementById(inputFieldId).value.length;
+		   document.getElementById(infoBlockId).value=characters;
+		//  document.getElementById(infoBlockId).innerHTML = characters;
+		}
+	</script>
+
+	</head>
+	<body>
+		<form oninput ="document.getElementById('chars').value=document.getElementById('ta').value.length;">
+		  <textarea  id="ta"></textarea>
+		  <output  id="chars" ></output>  
+		</form>
+		<!-- valueAsNumber html5的数字转换器,parseInt() -->
+		<form onsubmit="return false" oninput="x.value = a.valueAsNumber + b.valueAsNumber"> 
+		  <input name="a" type="number" step="1"/> +
+		  <input name="b" type="number" step="1"/> =
+		  <output name="x"></output>
+		</form>
+	</body>
+</html>

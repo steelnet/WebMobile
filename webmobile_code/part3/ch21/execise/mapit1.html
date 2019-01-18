@@ -1,0 +1,97 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用微软bing地图 API</title>
+<meta name="viewport" content="width=device-width"/>
+<script src="jquery/jquery-1.10.2.js"></script>
+</head>
+<body>
+</body>
+</html>
+
+<script charset="UTF-8" type="text/javascript"
+src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.
+
+<section>
+<h2>Where Are You Now?</h2>
+<p id="supports">Your browser does not support GeoLocation</p>
+</section>
+
+<section id="getMapInfo">
+<h3>Map Options</h3>
+<p>Zoom level:
+Orbit (1)
+<input id="zoomLvl" value="11" type="range" min="1" max="20">
+Your yard (20)
+<p><button id="getGeo">Get My Location</button></p>
+<div id="map"></div>
+</section>
+<script>
+$(document).ready(function(e) {
+if (supportsGeoLocation()) {
+$("#supports").html("Your browser supports GeoLocation. ");
+} else {
+$("#supports").html("Your browser does not support GeoLocation. ");
+$("#getMapInfo").hide(); // hide the button and map section
+}
+});
+function supportsGeoLocation() {
+return !!navigator.geolocation;
+}
+
+$("#getGeo").click(function(e) {
+getLocation();
+return false;
+});
+
+function getLocation() {
+navigator.geolocation.getCurrentPosition(mapIt, locationError);
+}
+
+function locationError(error) {
+switch(error) {
+case 1:
+alert("Location services denied");
+break;
+case 2:
+alert("Could not contact location services network or satellites");
+break;
+case 3:
+alert("Location services timed out");
+break;
+default:
+alert("Location could not be determined.");
+}
+$("#getMapInfo").hide();
+$("#supports").append(" There was an problem mapping your location, please try again
+later.");
+}
+
+function mapIt(position) {
+var lat = position.coords.latitude;
+var lon = position.coords.longitude;
+var zoom = parseInt($("#zoomLvl").val());
+var map, mapOptions, center, pin, pinOptions;
+// show a map from Bing，需要创建一个BING MAPS KEY
+mapOptions = {
+credentials: 'YOUR BING MAPS KEY',
+center: new Microsoft.Maps.Location(lat, lon),
+zoom: zoom
+};
+map = new Microsoft.Maps.Map(document.getElementById('map'), mapOptions);
+$("#map").after('<h3 class="after">You are Here</h3>');
+}
+
+center = map.getCenter();
+pinOptions = {
+icon: "/images/house.png",
+width: 16,
+height: 16,
+draggable: true
+};
+pin = new Microsoft.Maps.Pushpin(center, pinOptions);
+map.entities.push(pin);
+</script>
+<img src="http://open.mapquestapi.com/staticmap/v3/getmap?
+center=40.0378,-76.305801&size=400,400&zoom=12">

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>通过web socket与php socket服务器连接</title>	
+<style>
+ 
+</style>
+<script>
+var host = "ws://localhost:8000/websocket/websocket-server.php";
+try{
+if (window.WebSocket){
+  var socket = new WebSocket(host);} else {alert("浏览器不支持web Socket！");}
+  console.log('WebSocket - status '+socket.readyState);
+  socket.onopen    = function(msg){ console.log("Welcome - status "+this.readyState); };
+  socket.onmessage = function(msg){ console.log("Received: "+msg.data); };
+  socket.onerror   = function(msg){ console.log("Error - status "+this.readyState); };
+  socket.onclose   = function(msg){ console.log("Disconnected - status "+this.readyState); };
+}
+catch(ex){ console.log(ex); }
+</script>
+</head>
+<body>
+<h1>建立web socket通信</h1>
+</body>
+</html>

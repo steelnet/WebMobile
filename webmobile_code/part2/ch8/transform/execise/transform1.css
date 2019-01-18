@@ -1,0 +1,15 @@
+.photo img{margin:80px 80px 80px 80px;
+padding:5px;
+width:80px;
+border:solid 1px black;
+background:white;
+-webkit-transition:all 1s;
+-moz-transition:all 1s;
+-o-transition:all 1s;
+}
+.photo img:hover {
+	-webkit-transform:scale(2.2) rotate(10deg);
+	-moz-transform:scale(2.2) rotate(10deg);
+	-o-transform:scale(2.2) rotate(10deg);
+	
+}

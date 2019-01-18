@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>可编辑元素1</title>	
+		<style>
+		 #edit { margin-bottom: 10px; }
+		 div#edit[contentEditable="true"] { padding: 10px; outline:2px dashed #CCC; }
+		 div#edit[contentEditable="true"]:focus { outline: 2px dashed #0090D2; background-color:yellow;}
+		</style>
+		<script>
+		function start() {
+		var ee=document.getElementById("edit");
+		ee.contentEditable="true";
+		}
+		function stop() {
+		var ee=document.getElementById("edit");
+		ee.contentEditable="false";
+		}
+		</script>
+	</head>	
+	<body>
+		信息：<div id="edit" contenteditable>你可以编辑修改这里的内容</div>
+		<button onclick="start()" >进入编辑</button>
+		<button onclick="stop()" >结束编辑</button>
+	</body>
+</html>

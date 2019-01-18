@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>translate变换矩形</title>	
+	<style>
+	canvas { border: solid thin black; }
+	</style>
+	<SCRIPT>
+		function draw() {
+		 var canvas = document.getElementById("canvas1");
+		 var context = canvas.getContext("2d");
+		 context.translate(100,100);
+		for (var i=1; i<10; i++)
+		{
+		
+		context.rotate(2*Math.PI*1/(10-1));
+		context.rect(0,0,69,69);
+		context.stroke();
+		alert(i);
+		}
+		//draw box
+		 //context.stroke();
+	}
+	</SCRIPT>
+</head>
+<body>
+	<canvas width="500" height="600" id="canvas1" onclick="draw();"></canvas>
+</body>
+</html>

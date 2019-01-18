@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>画两条线</title>	
+	<style>
+	canvas { border: solid thin black; }
+	</style>
+	<script>
+		function draw() {
+		 var canvas = document.getElementById("canvas1");
+		 var context = canvas.getContext("2d");
+		 context.lineWidth=10; //定义线条粗细
+		 context.strokeStyle="rgb(200,12,15)"; //定义颜色
+			
+		 //第一条线
+			context.beginPath();
+		    context.moveTo(50,50); //移动到画线的起点
+			context.lineTo(250,50); //画线
+			//context.stroke();  //执行画线
+			//context.closePath(); //关闭图形路径
+		//第二条线	
+			//context.beginPath();
+		   // context.moveTo(50,100); //移动到画线的起点
+			context.lineTo(250,100); //画线
+			context.stroke();  //执行画线
+			context.closePath(); //关闭图形路径	
+			context.fillStyle="blue";
+			context.fill(); //填充的是可以闭合的绘图路径 //例如去掉第二条线的moveTo()
+	}
+	</script>
+</head>
+<body>
+	<canvas width="480" height="450" id="canvas1" onclick="draw();" ondblclick="eraseRect()"></canvas>
+</body>
+</html>

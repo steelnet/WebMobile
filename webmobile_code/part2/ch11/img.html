@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>画布加入图片</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function drawRect() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			var img = new Image();
+			img.src = "images/qq_logo.png";
+			img.onload = function() {
+			context.drawImage(img, 10,10);
+			}
+				}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="350" height="450" id="canvas1" onclick="drawRect();"></canvas>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+﻿body{width:960px;}
+#login {border: solid 1px black;
+	background:gray;
+	float:left;
+	width:500px;}
+p {
+	width:300px;
+	}
+	/*上面定义了960px的宽，login区块占了500px，input占了300px
+	  */

@@ -1,0 +1,10 @@
+progress {
+    width: 160px;
+    border: 1px solid #0064B4;  
+    background-color:#e6e6e6;
+    color: #0064B4; /*IE10*/
+}
+
+progress::-moz-progress-bar { background: #0064B4; }
+progress::-webkit-progress-bar { background: #e6e6e6; }
+progress::-webkit-progress-value  { background: #0064B4; }

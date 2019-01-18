@@ -1,0 +1,20 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>&lt;例子4-16&gt;&nbsp;&nbsp;jQuery技术</title>
+	<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script-->
+		<script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
+		<!--练习，固定图片位置和按钮位置-->
+		<script>
+			$(document).ready(function(){ //相当于window.onload=function() {};
+			  $("button").click(function(){    //相当于document.getElelmentById("h1").onclick=function () {this.style.display=none;}
+			  $("img").toggle("1000"); //show()和hide()是一对显示隐藏DOM对象的jquery函数，可以带特效参数。”slow“或毫秒单位
+			  });
+			});
+		</script>
+	</head>
+	<body>
+		<img src="images/qq_logo.png"></img>
+		<button>图片开关</button>
+	</body>
+</html> 

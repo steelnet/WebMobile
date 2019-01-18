@@ -1,0 +1,10 @@
+.sbutton{color:black; font-size:30px;font-weight:bold;padding 10px, border:solid 1px back;
+	background:lightgreen;cursor:pointer;
+	box-shadow:6px 6px 2px gray;
+	-webkit-transition:background 0.5s, color 0.5s;
+	-moz-transition:background 0.5s, color 0.5s;
+	-o-transition:background 0.5s, color 0.5s;
+	transition:background 0.5s, color 0.5s;
+}
+.sbutton:hover {color:red;background:yellow;}
+.sbutton:active {box-shadow:6px 6px 60px white;}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>例子22-2 设备方向</title>
+		<meta charset="UTF-8" />
+  </head>
+  <body>
+    <p>左右转动：<span id="alpha">0</span>度</p>
+    <p>前后转动：<span id="beta">0</span>度</p>
+    <p>扭转设备：<span id="gamma">0</span>度</p>
+    <p>指北针指向：<span id="heading">0</span>度</p>
+    <p>指北针精度：<span id="accuracy">0</span>度</p>
+    <script type="text/javascript">
+		function orientationHandler(event) {
+		  document.getElementById("alpha").innerHTML = event.alpha;
+		  document.getElementById("beta").innerHTML = event.beta;
+		  document.getElementById("gamma").innerHTML = event.gamma;
+		  document.getElementById("heading").innerHTML = event.webkitCompassHeading;
+		  document.getElementById("accuracy").innerHTML = event.webkitCompassAccuracy;
+		}
+		
+		if (window.DeviceOrientationEvent) {
+		  window.addEventListener("deviceorientation", orientationHandler, false);
+		} else {
+		  document.body.innerHTML = "浏览器不支持orientation";
+		}
+		/*
+		if (window.DeviceOrientationEvent) {   //检查浏览器支持设备方向感接口 
+				window.addEventListener('deviceorientation', function(event) 
+				//alpha沿z轴转动， beta沿y轴转动， gamma沿x轴转动， 单位弧度
+				{var a = event.alpha, b = event.beta, g = event.gamma;      
+				var ori=document.getElementById('orientation');
+				ori.innerHTML='Orientation - Alpha: ' + a + ', Beta: '+ b + ', Gamma: ' + g;
+				console.log('Orientation - Alpha: ' + a + ', Beta: '+ b + ', Gamma: ' + g);
+				}, false);} 
+			else 
+				{console.log('This device does not support deviceorientation');}
+				}
+		*/
+   	 </script>
+  </body>
+</html>

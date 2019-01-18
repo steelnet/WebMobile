@@ -1,0 +1,115 @@
+<!DOCTYPE html>  
+<!--代码参考来自：http://blog.csdn.net/cuixiping/article/details/9906045#  -->
+<html>  
+	<head>  
+		<meta charset="utf-8" />  
+		<title>例子15-5 IndexedDB建立游标和索引</title>  
+		<!--请使用Google Chrome浏览器测试，并打开开发者工具，通过console查看数据库的操作事件-->
+	</head>  
+	  
+	<body>  
+		<h1>indexedDB中索引的使用</h1>  
+		<pre>  
+			姓:<input type="text" id="tx1" value="张">名:<input type="text" id="tx2"><button id="btnAdd">add</button>  
+			result:  
+			<textarea id="taResult" rows="10" cols="90"></textarea>  
+			<button id="btnRead">read</button>  
+			<button id="btnDelDB">deleteDatabase</button>  
+		</pre>  
+		  
+		<script>  
+			"use strict";
+			function theID(id){return document.getElementById(id);}  
+			  
+			var DBname = 'testDB1', storeName = 'testStore1', dbVersion = 1.01;  
+			  
+			theID('btnAdd').onclick = add;  
+			theID('btnRead').onclick = read;  
+			theID('btnDelDB').onclick = function (){  
+				var req=indexedDB.deleteDatabase(DBname);  
+				req.onsuccess = function () {
+					alert("Deleted database successfully");
+				};
+				req.onerror = function () {
+					alert("Deleting database error!");
+				};
+				req.onblocked = function () {
+					alert("operation being blocked!");
+				};
+				
+			};  
+			  
+			function read(){  
+				openDB(function (db){  
+					var transaction = db.transaction(storeName,"readonly");  
+					transaction.oncomplete = function(event) {  
+						console.log("transaction oncomplete");  
+					};  
+					var store = transaction.objectStore(storeName);  
+					//使用索引查询所有姓输入的姓的记录  
+					console.log(theID('tx1').value);
+					var keyRange = IDBKeyRange.only(thID('tx1').value);  
+					//创建游标
+					var req = store.index("ix_familyName").openCursor(keyRange, "next");  
+					var records = [];  
+					theID('taResult').value = '';  
+					req.onsuccess = function(event) {  
+						var cursor = event.target.result;  
+						if (!cursor) {  
+							//打印查询结果集  
+							theID('taResult').value = records.join('\n');  
+							return;  
+						}  
+						records.push(cursor.primaryKey + '    ' + cursor.key + '    ' + cursor.value.familyName + '    ' + cursor.value.name);  
+						cursor.continue();  
+					};  
+				});  
+			}  
+			  
+			function add(){  
+				openDB(function (db){  
+					var transaction = db.transaction(storeName,"readwrite");  
+					transaction.oncomplete = read;  
+					var store = transaction.objectStore(storeName);  
+					var req = store.put({familyName:theID('tx1').value,name:theID('tx2').value});  
+					req.onsuccess = function(event) {  
+						read();  
+					};  
+				});  
+			}  
+			  
+			function openDB(callback){  
+				if(openDB.db){  
+					callback(openDB.db);  
+					return;  
+				}  
+				var openRequest = indexedDB.open(DBname, dbVersion);  
+				openRequest.onupgradeneeded = function (e) {  
+					console.log('openRequest.onupgradeneeded');  
+					var db = e.target.result;  
+					if(!db.objectStoreNames.contains(storeName)) {  
+						var store = db.createObjectStore(storeName, {keyPath:"id", autoIncrement: true});  
+						//创建索引  
+						store.createIndex("ix_familyName", "familyName", {unique: false});  
+						//插入初始化测试数据  
+						store.put({familyName: "张", name: "三"});  
+						store.put({familyName: "张", name: "四"});  
+						store.put({familyName: "张", name: "五"});  
+						store.put({familyName: "张", name: "六"});  
+						store.put({familyName: "王", name: "五"});  
+						store.put({familyName: "王", name: "六"});  
+					}  
+				};  
+				openRequest.onsuccess = function(e) {  
+					console.log('openRequest.onsuccess');  
+					if(callback){  
+						openDB.db = e.target.result;  
+						callback(e.target.result);  
+					}  
+				};  
+			}  
+		  
+		</script>  
+	  
+	</body>  
+</html>  

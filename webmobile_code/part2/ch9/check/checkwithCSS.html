@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>表单验证样式</title>	
+	</head>
+	<style>
+		input:required:invalid{background-color:lightyellow;}
+	</style>
+	<body>
+		<form>
+			<!--禁用浏览器验证 form novalidate-->
+			 <input type="text" id="name" required />
+			 <input id="ccnum" placeholder="请输入16位数字" pattern="[0-9]{16}" />
+			 <input type="submit" value="提交" />
+		</form>
+	</body>
+</html>

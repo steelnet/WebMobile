@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>全屏状态下锁屏 Lock </title>
+		<script>
+		  var start = function() {
+			document.onfullscreenchange = function() {
+			  screen.orientation.lock('natural').then(startInternal);
+			}
+			document.documentElement.requestFullscreen();
+		  }
+		</script>
+	</head>
+	<body>
+		<button onclick='start();'>
+		  Start
+		</button>
+	</body>
+</html>

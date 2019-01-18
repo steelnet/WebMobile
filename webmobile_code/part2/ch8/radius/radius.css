@@ -1,0 +1,16 @@
+.tbox1{	background:rgba(110,143,11,0.5);}
+.tbox2{	background:rgb(210,243,21); 
+		background:rgba(110,143,11,0.5);}
+.tbox3{	background:rgb(222,111,21);opacity:0.5}
+.rbox1{border-radius:30px 30px 30px 30px;}
+.rbox2{border-top-left-radius:30px 15px;}
+h1,p{margin:30px 20px;
+	padding:10px 20px;}
+body{
+	background:url(images/ff.jpg);
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+	/*background:yellow;*/
+	
+	}
+

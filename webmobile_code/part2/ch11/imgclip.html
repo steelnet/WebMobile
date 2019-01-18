@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>图像缩放，裁剪</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function drawQQ() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			var myQQ = new Image();
+			myQQ.src = "images/qq_logo.png";
+			myQQ.onload = function() {
+			context.save();
+			context.rect(0,0,200,200);
+			context.clip();
+			context.drawImage(myQQ, 0,0);
+			context.restore();
+			context.drawImage(myQQ, 20,50);
+			context.drawImage(myQQ, 148, 14, 92, 120, 20,370, 123,160);
+			context.drawImage(myQQ, 235, 122, 65, 85, 298,370, 122,160);
+			}
+				}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="600" height="650" id="canvas1" onclick="drawQQ();"></canvas>
+	</body>
+</html>

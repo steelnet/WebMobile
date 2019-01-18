@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>读取图片文件</title>	
+		<style>
+		</style>
+	</head>
+	<body>
+		<input type="file" id="files" name="files[]" multiple />
+		<output id="list"></output>
+		<script>
+		  function processFiles(evt) {
+			var files = evt.target.files; // FileList object
+			var output = [];
+			for (var i = 0, file; file = files[i]; i++) {
+
+			  // 
+			  if (!/image\/\w+/.test(file.type)) {
+			  alert("不是图片！");
+				continue;
+			   } 
+			  var reader = new FileReader();
+		  // 读
+			  reader.readAsDataURL(file);
+			  //
+			  reader.onload = (function(file) {
+				return function(e) {
+				var img = document.createElement("img");
+				img.height=80;
+				img.src =  e.target.result;
+				//img.src = window.URL.createObjectURL(file);
+				//alert(img.src);
+				document.getElementById('list').insertBefore(img, null);
+				};
+			  })(file);
+			}
+		  }
+		  document.getElementById('files').addEventListener('change', processFiles, false);
+		</script>
+	</body>
+</html>

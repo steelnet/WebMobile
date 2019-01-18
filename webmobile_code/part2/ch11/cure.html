@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>画弧</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function drawLine() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			 var startPoint = (Math.PI/180)*180;
+			 var endPoint = (Math.PI/180)*270;
+			 context.beginPath();
+			 context.arc(200,200,100,startPoint,endPoint,false); //clockwise，顺时针=true
+			// context.closePath();
+			// context.fill();
+			 context.stroke();//画轮廓
+			 
+		}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="350" height="450" id="canvas1" onclick="drawLine();"></canvas>
+	</body>
+</html>

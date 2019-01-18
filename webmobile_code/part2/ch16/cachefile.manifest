@@ -1,0 +1,13 @@
+﻿CACHE MANIFEST 
+#VERSION 5.1 
+#直接缓存的文件 
+CACHE: 
+qq_logo.png
+offline.html
+#需要在线的文件 
+NETWORK: 
+test.js
+#替代方案 
+FALLBACK: 
+#offline.html
+offline.js

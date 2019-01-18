@@ -1,0 +1,42 @@
+div#home{width:960px;
+		margin:auto;
+		color:white;
+		text-align:center;
+		font-size:25px;}
+header{height:250px;
+	background-color:red;
+	}
+#logo {float:left;
+		background:#112233;
+		width:120px;
+		height:150px;
+		border: 2px solid;
+		border-radius:30px 30px 30px 30px;
+		box-shadow: 10px 10px 5px #888888;
+		text-align:center;
+		/*vertical-align:middle;*/
+		padding-top: 30px;
+}
+#photo{float:right;}
+img {height:250px;}
+nav{height:30px;
+	background-color:green;
+	margin-top:5px;
+	}
+aside{height:600px;
+		margin-top:5px;
+		width:28%;
+		background-color:pink;
+		float:right;}
+footer{height:80px;
+			margin-top:5px;
+			background-color:#345566;}
+section#main{height:600px;
+			margin-top:5px;
+			width:71%;
+			margin-right:5px;
+			background-color:blue;
+	}
+article.aa {background:#662233;
+			height:100%;
+			margin-bottom:3px;}

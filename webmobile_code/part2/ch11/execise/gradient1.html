@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>辐射渐变锥形</title>	
+	<style>
+	canvas { border: solid thin black; }
+	</style>
+	<SCRIPT>
+		function drawLine() {
+		 var canvas = document.getElementById("canvas1");
+		 var context = canvas.getContext("2d");
+		 var radGrad = context.createRadialGradient(20,25,20, 100,150,200);
+		 radGrad.addColorStop(0.9, "rgb(105,138,72)");
+		 radGrad.addColorStop(0, "rgba(171,235,108,1)");
+		 radGrad.addColorStop(0.8, "rgba(105,138,72,1)");
+
+		//draw gradient box
+		 context.fillStyle = radGrad;
+		 context.fillRect(10,10, 490,490);
+	}
+	</SCRIPT>
+</head>
+<body>
+	<canvas width="500" height="600" id="canvas1" onclick="drawLine();"></canvas>
+</body>
+</html>

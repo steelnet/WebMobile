@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>&lt;例子4-12gt;&nbsp;&nbsp;技术</title> 
+		<script type="text/javascript">
+			
+			function loadDoc()
+			{
+				var xmlhttp; //创建ajax通信对象实例
+				//.... AJAX script goes here ...XMLHttpRequest是Ajax的通信对象
+				if (window.XMLHttpRequest)
+				  {// code for IE7+, Firefox, Chrome, Opera, Safari
+				  xmlhttp=new XMLHttpRequest();
+				  }
+				else
+				  {// code for IE6, IE5
+				  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				  }
+				  //打开通信，向服务器发出请求
+				  xmlhttp.open("GET","test1.txt",true); //向服务器发出get请求传送文件test1.txt，”true“表示异步通信，false表示同步通信
+				  xmlhttp.send();
+				
+				//监听通信事件
+				xmlhttp.onreadystatechange=function()
+				  {
+					if (xmlhttp.readyState==4 && xmlhttp.status==200) //通信结束readystate=4, 200表示通信正常ok
+						{
+						alert("传送完毕！");
+						document.getElementById("myDiv").innerHTML=xmlhttp.responseText; //将文件取出，显示
+						}
+					else {alert("正在传送...");}
+				  }
+			  }
+		</script>
+	</head>
+	<body>
+		<div id="myDiv"><h1>让 AJAX 改变文本</h1></div>
+		<button type="button" onclick="loadDoc()">传送文本</button>
+	</body>
+</html>

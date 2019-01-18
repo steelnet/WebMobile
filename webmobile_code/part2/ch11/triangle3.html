@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>画三角形</title>	
+  <script>
+  function drawTriangle() {
+   var Canvas = document.getElementById("canvas1");
+   var context = Canvas.getContext("2d");
+   context.fillStyle ='rgba(250,0,0,.3)';//填充颜色：红色，半透明
+  // context.strokeStyle ='hsl(120,50%,50%)';//线条颜色：绿色
+   context.lineWidth = 13;//设置线宽
+    context.beginPath();
+   context.moveTo(200,100);
+   context.lineTo(100,200);
+   context.lineTo(300,200);
+  // context.closePath();//可以把这句注释掉再运行比较下不同
+   context.stroke();//画线框
+   context.fill();//填充颜色*/
+    /* context.moveTo(250,50); //移动到画线的起点
+   context.lineTo(50,250); //画线
+   context.lineTo(450,250); //画线
+   context.lineTo(250,50); //画线
+   context.lineWidth=10; //定义线条粗细
+   context.strokeStyle="rgb(200,12,15)"; //定义颜色 
+   context.closePath(); //关闭图形路径 
+   context.stroke();  //执行画线 
+   context.fill();//填充颜色
+  */
+   }
+   window.addEventListener("load", drawTriangle, true);
+  </script>
+</head>
+<body>
+	<canvas width="550" height="450" id="canvas1"></canvas>
+</body>
+</html>

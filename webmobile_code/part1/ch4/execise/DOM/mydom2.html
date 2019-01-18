@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>&lt;DOM&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;技术</title>
+</head>
+<body>
+	<div id="d1"style=background-color:yellow> 
+		<p id="p1">段落1</p> 
+		<p id="p2">段落2</p>
+	</div>
+	<script>
+	<!--直接插入段落4和用DOM技术插入段落3的区别-->
+		var para=document.createElement("p"); 
+		var node=document.createTextNode("段落3"); 
+		para.appendChild(node);
+		var ele=document.getElementById("d1");
+		ele.appendChild(para);
+		document.write("<p>段落4</p>");
+	</script>
+
+</body>
+</html>

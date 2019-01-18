@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>strokeRect()画矩形轮廓</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function drawRect() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			 
+			 context.lineWidth=3;
+			 context.strokeStyle="rgb(120,111,176)";
+			 context.strokeRect(30,30,159,159);
+		}
+		function clearCanvas() {
+			  var canvas = document.getElementById("canvas1");
+			  canvas.width = canvas.width;
+			}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="350" height="450" id="canvas1" onclick="drawRect();" ondblclick="clearCanvas()"></canvas>
+	</body>
+</html>

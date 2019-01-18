@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>插入文字</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function draw() {
+
+			var canvas=document.getElementById("canvas1");
+			var context=canvas.getContext("2d");
+
+			//Draw a red line at y=160
+			context.strokeStyle="black";
+			context.moveTo(5,160);
+			context.lineTo(400,160);
+			context.stroke();
+			context.font="50px 黑体";
+			context.strokeText("黑体字",10,50);
+
+			context.font="30px 宋体";
+			txt="带渐变的宋体字";
+			// 创建渐变
+			var gradient=context.createLinearGradient(0,0,context.measureText(txt).width,0);
+			gradient.addColorStop("0","yellow");
+			gradient.addColorStop("0.5","blue");
+			gradient.addColorStop("1.0","orange");
+			// 用渐变填充文字
+			context.fillStyle=gradient;
+			context.fillText(txt,10,90);
+			context.font="20px Arial";
+			
+			context.fillStyle="black";
+			//不同文字基线位置
+			context.textBaseline="top"; 
+			context.fillText("Top",5,160); 
+			context.textBaseline="bottom"; 
+			context.fillText("Bottom",50,160); 
+			context.textBaseline="middle"; 
+			context.fillText("Middle",120,160); 
+			context.textBaseline="alphabetic"; 
+			context.fillText("Alphabetic",190,160); 
+			context.textBaseline="hanging"; 
+			context.fillText("Hanging",290,160);
+		}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="500" height="600" id="canvas1" onclick="draw();"></canvas>
+	</body>
+</html>

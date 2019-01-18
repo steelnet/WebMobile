@@ -1,0 +1,23 @@
+body {font:12px 宋体;
+margin:0px;text-align:center;
+background:#FFF}/*上一级标签设置居中*/
+#container{width:900px;
+margin:0 auto}
+#header {margin:0 auto;
+height:100px;background:#FFCC99;
+margin-bottom:8px;}
+#main{margin-bottom:8px;}
+ #nav {float:left;width:100px;
+ height:600px;background:#FFCC22}
+ #content {float:right; 
+ width:800px;height:600px;
+ background:#FF3322}/*margin:0 auto 表示居中*/
+ #footer {height:70px;
+ background-color:#11fc32;
+ margin-top:8px}
+ .clearfloat {clear:both;
+ height:0;font-size: 1px;
+ line-height: 0px;}
+ 
+ 
+ 

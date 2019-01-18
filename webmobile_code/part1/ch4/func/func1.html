@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>函数 </title>	
+</head>
+<body>
+<p>创建一个函数</P>
+<script>
+	function add(x, y) { return x + y;}
+	var sum=add(1,2); //函数执行后的返回值
+	var add1=add; //函数对象赋值
+	alert("x+y="+add1(1,2));
+	var addxy=new Function ("x","y","return x + y;");
+	alert("x+y="+addxy(1,2));
+</script>
+</body>
+</html>

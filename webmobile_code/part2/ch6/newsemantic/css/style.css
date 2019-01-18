@@ -1,0 +1,33 @@
+body {width:960px;
+margin:15px auto;
+font-family: Arial, "MS Trebuchet",sans-serif;
+}
+header{width:100%;}
+header#p-header nav ul {
+list-style:none;
+margin:0;
+padding:0
+}
+/*#p-header nav ul li{
+padding:0;
+margin: 0 20px 0 0;
+display:inline;
+}*/
+article#post{
+border:1px solid black;
+float:left;
+width:63%;
+}
+aside#as {
+float:right;
+width:35%;
+margin-left:1%;
+front-size:20px;
+line-height:40px;
+}
+footer{
+clear:both; 
+width:100%;
+display:block;
+text-align:center;
+ }

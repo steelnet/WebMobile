@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>访问微数据vEvent演示</title>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="event.js" charset="utf-8"> </script>
+    </head>
+
+	<body itemscope itemtype="http://microformats.org/profile/hcalendar#vevent">
+		 <h1 itemprop="summary">HTML5讲座</h1>
+		 <time itemprop="dtstart" datetime="2016-05-20T19:00:08Z">5月20号晚上7点</time>
+		 - <time itemprop="dtend" datetime="2016-05-20T21:00:08Z">9点</time>
+		 <p>地点： <span itemprop="location">敷文苑C-104</span></p>
+		 <p><input type=button value="添加到日历" onclick="location = getCalendar(this)"></p>
+		 <meta itemprop="description" content="介绍HTML5的最新技术">
+	</body>
+</html>

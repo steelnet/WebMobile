@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>例子25-2 JavaScript闭包</title>
+	</head>
+	<body>
+		<p>局部变量计算</p>
+		<button type="button" onclick="count()">计算</button><br/>
+		a=<span id="a">0</span><br/>
+		b=<span id="b">0</span>
+		<script>
+			var count =( function () {
+				var a = 0;
+				return function () {
+				var b=0;
+				b+=1;
+				a+= 1;
+				document.getElementById("a").innerHTML = a;
+				document.getElementById("b").innerHTML = b;
+				}
+			})();
+		</script>
+	</body>
+</html>

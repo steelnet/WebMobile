@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>自定义表单验证提示</title>	
+
+	</head>
+	<script>
+		function valideit(it) {
+			if (it.value.length<8) {it.setCustomValidity("请输入密码长度在8字符以上");}
+			else
+			{it.setCustomValidity("");}
+		}
+	</script>
+	<body>
+	<form>
+		<!--禁用浏览器验证 form novalidate-->
+		 密码：<input type="password" id="name" required oninput="valideit(this);" />
+		 <input type="submit" value="提交" />
+	</form>
+	</body>
+</html>

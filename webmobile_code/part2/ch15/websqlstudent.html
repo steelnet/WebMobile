@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+   <head>
+	<title>通过web SQL存储数据</title>	
+      <script type="text/javascript">
+	  <!--请使用goole Chrome浏览器测试-->
+		//function callback(tx,msg){}
+		function testwebSQL() {return window.openDatabase;};
+		window.onload=function (){if (testwebSQL()) {alert("浏览器支持web SQL存储！");}else {alert("浏览器不支持web SQL存储！");};}
+         var db = openDatabase('studentDB', '1.0', 'this is Test DB', 2096);
+         var msg;
+			//插入数据
+         db.transaction(function (tx) {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS students(id unique, name text,age integer)');
+            tx.executeSql('INSERT INTO students (id, name,age) VALUES (1, "Joe",21)');
+            tx.executeSql('INSERT INTO students (id, name,age) VALUES (2, "Mark",19)');
+            msg = '<p>插入两个数据！</p>';
+           document.getElementById("show").innerHTML = msg;
+         });
+		//查询数据
+         db.transaction(function (tx) {
+            tx.executeSql('SELECT * FROM students', [], function (tx, results) {
+               var len = results.rows.length, i;
+               msg = "<p>查到学生: " + len + "人</p>";
+               document.querySelector('#show').innerHTML += msg;
+					
+               for (i = 0; i < len; i++){
+                  msg = "<p>学生名：" + results.rows.item(i).name + "</p>";
+                  document.querySelector('#show').innerHTML +=  msg;
+               }
+            }, null);
+         });
+		 //删除数据，这里要删除的记录， id=3没有，在后台查看错误信息
+		db.transaction(function (tx) {
+        tx.executeSql( "delete from students where id= ?",[3],
+        function (tx, result) {},
+        function (tx, err) {/*console.error(err.message)*/ alert('删除失败: ' + err.message);});
+     });	
+	
+      </script>
+		
+   </head>
+	
+   <body>
+      <div id="show">Show Message</div>
+   </body>
+	
+</html>

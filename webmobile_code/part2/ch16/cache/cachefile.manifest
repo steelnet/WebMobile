@@ -1,0 +1,11 @@
+CACHE MANIFEST 
+#VERSION 3.9 
+# 直接缓存的文件 
+CACHE: 
+cacheapp.html 
+#需要在线的文件 
+NETWORK: 
+test.js 
+# 替代方案 
+FALLBACK: 
+//offline.html

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>画圆</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function drawCircle() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			 var startPoint = (Math.PI/180)*0;
+			 var endPoint = (Math.PI/180)*360;
+			 context.beginPath();
+			 context.arc(200,200,100,startPoint,endPoint,true);
+			 context.closePath();
+			 context.stroke();//画轮廓
+			 context.fill(); 
+		}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="350" height="450" id="canvas1" onclick="drawCircle();"></canvas>
+	</body>
+</html>

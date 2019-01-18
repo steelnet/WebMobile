@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>例子8-14:伪元素</title>
+		<style type="text/css">
+		article p:first-child::before {content:url(qq_logo.png);}
+		article p:nth-child(2)::first-letter{font-size:300%;color:#996677;}
+		</style>
+	</head>
+
+	<body>
+	<article>
+		<p>this is first line, 
+			<i>text1</i>
+			<i>text2</i>
+			<i>text3</i>.
+		</p>
+		<p>this is second line, 
+			<i>text1</i>
+			<i>text2</i>
+			<i>text3</i>.
+		</p>
+		<p>this is third line, 
+			<i>text1</i>
+			<i>text2</i>
+			<i>text3</i>.
+		</p>
+	</article>
+	</body>
+</html>

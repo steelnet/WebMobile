@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>线性渐变盒子</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function draw() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			 var linGrad = context.createLinearGradient(0,0, 500,500);//创建线性渐变对象
+			 linGrad.addColorStop(0,"red"); //加入起点颜色
+			 linGrad.addColorStop(1,"orange");  //加入终点颜色
+			// draw gradient box
+			 context.fillStyle = linGrad; //
+			 context.fillRect(10,10, 490,490);
+			 
+		}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="500" height="600" id="canvas1" onclick="draw();"></canvas>
+	</body>
+</html>

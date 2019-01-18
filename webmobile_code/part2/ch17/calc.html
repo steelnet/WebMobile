@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!--请使用firefox浏览器测试,必须在web服务器下运行 -->
+		<meta charset="UTF-8">
+		<title>Web Workers Example</title>
+		<script src="jquery/jquery-1.10.2.js"></script>
+		<script src="jquery/jquery-ui-1.10.4.custom.min.js"></script>
+		<script>
+	
+			$(document).ready(function(){
+			var worker = new Worker("worker.js");
+			worker.onmessage = function(e){
+			$("#result").html(e.data.toString()); };
+			var message,num1, num2, op;
+			$("#cal").click(function() {
+			 num1= $("#first").val();
+			 num2= $("#second").val();
+			 var sel=$("#operator").selectedIndex;
+			 var opts=$("option");
+			 op= $("#operator").val();
+			 //alert(num1+op+num2);
+			 if (num1 && num2){
+				 message = {
+				'op' : op,
+				'num1' : num1,
+				'num2' : num2
+				}; 
+				worker.postMessage(message);}
+			else alert("请输入数字！");
+			});
+			});
+
+		</script>
+	</head>
+	<body>
+
+		<h1>简单加减计算器</h1>
+
+		<input id="first" type="number"/>
+		<select id="operator">
+		  <option value="+">+</option>
+		  <option value="-">-</option>
+		  <option value="*">*</option>
+		  <option value="/">/</option>
+		</select>
+		<input id="second" type="number"/>
+		<span>=</span>
+		<output id="result" name="rr"></output>
+		<br/><button id="cal">计算</button>
+
+	</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>画线节点形状</title>	
+		<style>
+			canvas { border: solid thin black; }
+		</style>
+		<SCRIPT>
+			function drawRect() {
+			 var canvas = document.getElementById("canvas1");
+			 var context = canvas.getContext("2d");
+			context.lineWidth = 15;
+			context.beginPath();
+
+			context.moveTo(10,20);
+			context.lineTo(150,200);
+
+			context.lineTo(290,20);
+			context.lineTo(430,200);
+			context.lineTo(570,20);
+			context.closePath();
+			context.lineJoin = "round";
+			context.lineCap = "round";
+			context.strokeStyle="rgba(200,25,10,0.5)"
+			context.stroke();
+
+		}
+		function clearCanvas() {
+			  var canvas = document.getElementById("canvas1");
+			  canvas.width = canvas.width;
+			}
+		</SCRIPT>
+	</head>
+	<body>
+		<canvas width="680" height="450" id="canvas1" onclick="drawRect();" ondblclick="clearCanvas()"></canvas>
+	</body>
+</html>

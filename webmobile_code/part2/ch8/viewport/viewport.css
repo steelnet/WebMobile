@@ -1,0 +1,43 @@
+article {border: solid 1px black;
+	background:red;
+	float:left;
+	width:330px;}
+aside {border:solid 1px black;
+	background:yellow;
+	position:absolute;
+	float:left;
+	margin-left:370px;}
+	/*用@指令定义viewport  */
+/*
+@-webkit-viewport {
+width: device-width;
+}
+@-moz-viewport {
+width: device-width;
+user-zoom: fixed;
+zoom: 2;
+max-zoom: 3; 
+min-zoom: 0.50; 
+}
+@-ms-viewport {
+width: device-width;
+user-zoom: fixed;
+zoom: 2;
+max-zoom: 3; 
+min-zoom: 0.50; 
+}
+@-o-viewport { 
+width: device-width;
+user-zoom: fixed;
+zoom: 2;
+max-zoom: 3; 
+min-zoom: 0.50; 
+}
+@viewport {
+width: device-width; 
+user-zoom: fixed;
+zoom: 2;
+max-zoom: 3; 
+min-zoom: 0.50; 
+}
+*/

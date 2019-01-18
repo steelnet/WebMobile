@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>用jQuery的自动完成</title>
+		<link rel="stylesheet" href="modernizr/ui-lightness/jquery-ui-1.10.4.custom.css"/>
+		<script type="text/javascript" src="modernizr/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="modernizr/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="modernizr/modernizr.custom.28187.js"></script>
+		<script>
+		$(document).ready(function(){ //window.onload=
+		if (Modernizr.input.autocomplete) {
+		  var data = ["bees", "birds", "cats", "cows", "dogs", "fish", "horses", "snakes" ];
+		  $("#animals").autocomplete({
+			source:data
+			});
+		  }
+		});
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="text" id="animals" />
+		</form>
+	</body>
+</html>

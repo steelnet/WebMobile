@@ -1,0 +1,11 @@
+.photo img{margin:80px 80px 80px 80px;
+padding:5px;
+width:80px;
+border:solid 1px black;
+background:white;}
+.photo img:hover {
+	-webkit-transform:scale(2.2) rotate(10deg);
+	-moz-transform:scale(2.2) rotate(10deg);
+	-o-transform:scale(2.2) rotate(10deg);
+	
+}
